@@ -1,0 +1,152 @@
+COPYBOOK PARSING VALIDATION REPORT
+======================================================================
+
+======================================================================
+  ACCOUNT-RECORD  (CVACT01Y.cpy → acctdata.txt)
+======================================================================
+Raw file line count : 50
+PySpark row count   : 50
+Row count match     : PASS
+Record length check : PASS  (expected 300)
+Null values found   : NONE (all key fields populated)
+
+Sample rows (first 3):
+  Row 1:
+    ACCT_ID                        = 1
+    ACCT_ACTIVE_STATUS             = Y
+    ACCT_CURR_BAL                  = 194.00
+    ACCT_CREDIT_LIMIT              = 2020.00
+    ACCT_CASH_CREDIT_LIMIT         = 1020.00
+    ACCT_OPEN_DATE                 = 2014-11-20
+    ACCT_EXPIRAION_DATE            = 2025-05-20
+    ACCT_REISSUE_DATE              = 2025-05-20
+    ACCT_CURR_CYC_CREDIT           = 0.00
+    ACCT_CURR_CYC_DEBIT            = 0.00
+    ACCT_ADDR_ZIP                  = A000000000
+    ACCT_GROUP_ID                  = 
+  Row 2:
+    ACCT_ID                        = 2
+    ACCT_ACTIVE_STATUS             = Y
+    ACCT_CURR_BAL                  = 158.00
+    ACCT_CREDIT_LIMIT              = 6130.00
+    ACCT_CASH_CREDIT_LIMIT         = 5448.00
+    ACCT_OPEN_DATE                 = 2013-06-19
+    ACCT_EXPIRAION_DATE            = 2024-08-11
+    ACCT_REISSUE_DATE              = 2024-08-11
+    ACCT_CURR_CYC_CREDIT           = 0.00
+    ACCT_CURR_CYC_DEBIT            = 0.00
+    ACCT_ADDR_ZIP                  = A000000000
+    ACCT_GROUP_ID                  = 
+  Row 3:
+    ACCT_ID                        = 3
+    ACCT_ACTIVE_STATUS             = Y
+    ACCT_CURR_BAL                  = 147.00
+    ACCT_CREDIT_LIMIT              = 4909.00
+    ACCT_CASH_CREDIT_LIMIT         = 538.00
+    ACCT_OPEN_DATE                 = 2013-08-23
+    ACCT_EXPIRAION_DATE            = 2024-01-10
+    ACCT_REISSUE_DATE              = 2024-01-10
+    ACCT_CURR_CYC_CREDIT           = 0.00
+    ACCT_CURR_CYC_DEBIT            = 0.00
+    ACCT_ADDR_ZIP                  = A000000000
+    ACCT_GROUP_ID                  = 
+
+======================================================================
+  CUSTOMER-RECORD  (CUSTREC.cpy → custdata.txt)
+======================================================================
+Raw file line count : 50
+PySpark row count   : 50
+Row count match     : PASS
+Record length check : PASS  (expected 500)
+Null values found   : NONE (all key fields populated)
+
+Sample rows (first 3):
+  Row 1:
+    CUST_ID                        = 1
+    CUST_FIRST_NAME                = Immanuel
+    CUST_MIDDLE_NAME               = Madeline
+    CUST_LAST_NAME                 = Kessler
+    CUST_ADDR_LINE_1               = 618 Deshaun Route
+    CUST_ADDR_LINE_2               = Apt. 802
+    CUST_ADDR_LINE_3               = Altenwerthshire
+    CUST_ADDR_STATE_CD             = NC
+    CUST_ADDR_COUNTRY_CD           = USA
+    CUST_ADDR_ZIP                  = 12546
+    CUST_PHONE_NUM_1               = (908)119-8310
+    CUST_PHONE_NUM_2               = (373)693-8684
+    CUST_SSN                       = 20973888
+    CUST_GOVT_ISSUED_ID            = 00000000000049368437
+    CUST_DOB_YYYYMMDD              = 1961-06-08
+    CUST_EFT_ACCOUNT_ID            = 0053581756
+    CUST_PRI_CARD_HOLDER_IND       = Y
+    CUST_FICO_CREDIT_SCORE         = 274
+  Row 2:
+    CUST_ID                        = 2
+    CUST_FIRST_NAME                = Enrico
+    CUST_MIDDLE_NAME               = April
+    CUST_LAST_NAME                 = Rosenbaum
+    CUST_ADDR_LINE_1               = 4917 Myrna Flats
+    CUST_ADDR_LINE_2               = Apt. 453
+    CUST_ADDR_LINE_3               = West Bernita
+    CUST_ADDR_STATE_CD             = IN
+    CUST_ADDR_COUNTRY_CD           = USA
+    CUST_ADDR_ZIP                  = 22770
+    CUST_PHONE_NUM_1               = (429)706-9510
+    CUST_PHONE_NUM_2               = (744)950-5272
+    CUST_SSN                       = 587518382
+    CUST_GOVT_ISSUED_ID            = 00000000000506210371
+    CUST_DOB_YYYYMMDD              = 1961-10-08
+    CUST_EFT_ACCOUNT_ID            = 0069194009
+    CUST_PRI_CARD_HOLDER_IND       = Y
+    CUST_FICO_CREDIT_SCORE         = 268
+  Row 3:
+    CUST_ID                        = 3
+    CUST_FIRST_NAME                = Larry
+    CUST_MIDDLE_NAME               = Cody
+    CUST_LAST_NAME                 = Homenick
+    CUST_ADDR_LINE_1               = 362 Esta Parks
+    CUST_ADDR_LINE_2               = Apt. 390
+    CUST_ADDR_LINE_3               = New Gladys
+    CUST_ADDR_STATE_CD             = GA
+    CUST_ADDR_COUNTRY_CD           = USA
+    CUST_ADDR_ZIP                  = 19852-6716
+    CUST_PHONE_NUM_1               = (950)396-9024
+    CUST_PHONE_NUM_2               = (685)168-8826
+    CUST_SSN                       = 317460867
+    CUST_GOVT_ISSUED_ID            = 00000000000052419303
+    CUST_DOB_YYYYMMDD              = 1987-11-30
+    CUST_EFT_ACCOUNT_ID            = 0006465789
+    CUST_PRI_CARD_HOLDER_IND       = Y
+    CUST_FICO_CREDIT_SCORE         = 616
+
+======================================================================
+  CARD-RECORD  (CVACT02Y.cpy → carddata.txt)
+======================================================================
+Raw file line count : 50
+PySpark row count   : 50
+Row count match     : PASS
+Record length check : PASS  (expected 150)
+Null values found   : NONE (all key fields populated)
+
+Sample rows (first 3):
+  Row 1:
+    CARD_NUM                       = 0500024453765740
+    CARD_ACCT_ID                   = 50
+    CARD_CVV_CD                    = 747
+    CARD_EMBOSSED_NAME             = Aniya Von
+    CARD_EXPIRAION_DATE            = 2023-03-09
+    CARD_ACTIVE_STATUS             = Y
+  Row 2:
+    CARD_NUM                       = 0683586198171516
+    CARD_ACCT_ID                   = 27
+    CARD_CVV_CD                    = 567
+    CARD_EMBOSSED_NAME             = Ward Jones
+    CARD_EXPIRAION_DATE            = 2025-07-13
+    CARD_ACTIVE_STATUS             = Y
+  Row 3:
+    CARD_NUM                       = 0923877193247330
+    CARD_ACCT_ID                   = 2
+    CARD_CVV_CD                    = 28
+    CARD_EMBOSSED_NAME             = Enrico Rosenbaum
+    CARD_EXPIRAION_DATE            = 2024-08-11
+    CARD_ACTIVE_STATUS             = Y
