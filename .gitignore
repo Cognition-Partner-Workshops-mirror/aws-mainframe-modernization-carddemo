@@ -6,3 +6,4 @@ batch-app/markers/*
 /.idea/
 .DS_Store
 **/.DS_Store
+pyspark_parsers/scripts/__pycache__/
