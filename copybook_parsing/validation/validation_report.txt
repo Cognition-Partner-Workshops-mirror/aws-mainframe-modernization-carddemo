@@ -1,0 +1,152 @@
+COBOL Copybook Parsing — Validation Report
+======================================================================
+
+======================================================================
+Validation: CVACT01Y.cpy → ACCOUNT-RECORD (300 bytes)
+  Schema : CVACT01Y_schema.json
+  Data   : acctdata.txt
+======================================================================
+
+  --- Record Length ---
+  Record length check: expected=300, actual=300 [PASS]
+
+  --- Row Count ---
+  Row count check: raw=50, parsed=50 [PASS]
+
+  --- Field Extraction (first record) ---
+    ACCT_ID                        raw='00000000001' parsed='00000000001' [PASS]
+    ACCT_ACTIVE_STATUS             raw='Y' parsed='Y' [PASS]
+    ACCT_CURR_BAL                  raw='00000001940{' decoded='194.00' parsed='194.00' [PASS]
+    ACCT_CREDIT_LIMIT              raw='00000020200{' decoded='2020.00' parsed='2020.00' [PASS]
+    ACCT_CASH_CREDIT_LIMIT         raw='00000010200{' decoded='1020.00' parsed='1020.00' [PASS]
+    ACCT_OPEN_DATE                 raw='2014-11-20' parsed='2014-11-20' [PASS]
+    ACCT_EXPIRAION_DATE            raw='2025-05-20' parsed='2025-05-20' [PASS]
+    ACCT_REISSUE_DATE              raw='2025-05-20' parsed='2025-05-20' [PASS]
+    ACCT_CURR_CYC_CREDIT           raw='00000000000{' decoded='0.00' parsed='0.00' [PASS]
+    ACCT_CURR_CYC_DEBIT            raw='00000000000{' decoded='0.00' parsed='0.00' [PASS]
+    ACCT_ADDR_ZIP                  raw='A000000000' parsed='A000000000' [PASS]
+    ACCT_GROUP_ID                  raw='' parsed='' [PASS]
+
+  --- Schema ---
+    root
+     |-- ACCT_ID: string (nullable = true)
+     |-- ACCT_ACTIVE_STATUS: string (nullable = true)
+     |-- ACCT_CURR_BAL: decimal(12,2) (nullable = true)
+     |-- ACCT_CREDIT_LIMIT: decimal(12,2) (nullable = true)
+     |-- ACCT_CASH_CREDIT_LIMIT: decimal(12,2) (nullable = true)
+     |-- ACCT_OPEN_DATE: string (nullable = true)
+     |-- ACCT_EXPIRAION_DATE: string (nullable = true)
+     |-- ACCT_REISSUE_DATE: string (nullable = true)
+     |-- ACCT_CURR_CYC_CREDIT: decimal(12,2) (nullable = true)
+     |-- ACCT_CURR_CYC_DEBIT: decimal(12,2) (nullable = true)
+     |-- ACCT_ADDR_ZIP: string (nullable = true)
+     |-- ACCT_GROUP_ID: string (nullable = true)
+     |-- FILLER: string (nullable = true)
+    
+
+  --- Sample Data (first 3 rows) ---
+    ACCT_ID              | ACCT_ACTIVE_STATUS   | ACCT_CURR_BAL        | ACCT_CREDIT_LIMIT    | ACCT_CASH_CREDIT_LIM | ACCT_OPEN_DATE      
+    ---------------------------------------------------------------------------------------------------------------------------------------
+    00000000001          | Y                    | 194.00               | 2020.00              | 1020.00              | 2014-11-20          
+    00000000002          | Y                    | 158.00               | 6130.00              | 5448.00              | 2013-06-19          
+    00000000003          | Y                    | 147.00               | 4909.00              | 538.00               | 2013-08-23          
+
+======================================================================
+Validation: CUSTREC.cpy → CUSTOMER-RECORD (500 bytes)
+  Schema : CUSTREC_schema.json
+  Data   : custdata.txt
+======================================================================
+
+  --- Record Length ---
+  Record length check: expected=500, actual=500 [PASS]
+
+  --- Row Count ---
+  Row count check: raw=50, parsed=50 [PASS]
+
+  --- Field Extraction (first record) ---
+    CUST_ID                        raw='000000001' parsed='000000001' [PASS]
+    CUST_FIRST_NAME                raw='Immanuel' parsed='Immanuel' [PASS]
+    CUST_MIDDLE_NAME               raw='Madeline' parsed='Madeline' [PASS]
+    CUST_LAST_NAME                 raw='Kessler' parsed='Kessler' [PASS]
+    CUST_ADDR_LINE_1               raw='618 Deshaun Route' parsed='618 Deshaun Route' [PASS]
+    CUST_ADDR_LINE_2               raw='Apt. 802' parsed='Apt. 802' [PASS]
+    CUST_ADDR_LINE_3               raw='Altenwerthshire' parsed='Altenwerthshire' [PASS]
+    CUST_ADDR_STATE_CD             raw='NC' parsed='NC' [PASS]
+    CUST_ADDR_COUNTRY_CD           raw='USA' parsed='USA' [PASS]
+    CUST_ADDR_ZIP                  raw='12546' parsed='12546' [PASS]
+    CUST_PHONE_NUM_1               raw='(908)119-8310' parsed='(908)119-8310' [PASS]
+    CUST_PHONE_NUM_2               raw='(373)693-8684' parsed='(373)693-8684' [PASS]
+    CUST_SSN                       raw='020973888' parsed='020973888' [PASS]
+    CUST_GOVT_ISSUED_ID            raw='00000000000049368437' parsed='00000000000049368437' [PASS]
+    CUST_DOB_YYYYMMDD              raw='1961-06-08' parsed='1961-06-08' [PASS]
+    CUST_EFT_ACCOUNT_ID            raw='0053581756' parsed='0053581756' [PASS]
+    CUST_PRI_CARD_HOLDER_IND       raw='Y' parsed='Y' [PASS]
+    CUST_FICO_CREDIT_SCORE         raw='274' parsed='274' [PASS]
+
+  --- Schema ---
+    root
+     |-- CUST_ID: string (nullable = true)
+     |-- CUST_FIRST_NAME: string (nullable = true)
+     |-- CUST_MIDDLE_NAME: string (nullable = true)
+     |-- CUST_LAST_NAME: string (nullable = true)
+     |-- CUST_ADDR_LINE_1: string (nullable = true)
+     |-- CUST_ADDR_LINE_2: string (nullable = true)
+     |-- CUST_ADDR_LINE_3: string (nullable = true)
+     |-- CUST_ADDR_STATE_CD: string (nullable = true)
+     |-- CUST_ADDR_COUNTRY_CD: string (nullable = true)
+     |-- CUST_ADDR_ZIP: string (nullable = true)
+     |-- CUST_PHONE_NUM_1: string (nullable = true)
+     |-- CUST_PHONE_NUM_2: string (nullable = true)
+     |-- CUST_SSN: string (nullable = true)
+     |-- CUST_GOVT_ISSUED_ID: string (nullable = true)
+     |-- CUST_DOB_YYYYMMDD: string (nullable = true)
+     |-- CUST_EFT_ACCOUNT_ID: string (nullable = true)
+     |-- CUST_PRI_CARD_HOLDER_IND: string (nullable = true)
+     |-- CUST_FICO_CREDIT_SCORE: integer (nullable = true)
+     |-- FILLER: string (nullable = true)
+    
+
+  --- Sample Data (first 3 rows) ---
+    CUST_ID              | CUST_FIRST_NAME      | CUST_MIDDLE_NAME     | CUST_LAST_NAME       | CUST_ADDR_LINE_1     | CUST_ADDR_LINE_2    
+    ---------------------------------------------------------------------------------------------------------------------------------------
+    000000001            | Immanuel             | Madeline             | Kessler              | 618 Deshaun Route    | Apt. 802            
+    000000002            | Enrico               | April                | Rosenbaum            | 4917 Myrna Flats     | Apt. 453            
+    000000003            | Larry                | Cody                 | Homenick             | 362 Esta Parks       | Apt. 390            
+
+======================================================================
+Validation: CVACT02Y.cpy → CARD-RECORD (150 bytes)
+  Schema : CVACT02Y_schema.json
+  Data   : carddata.txt
+======================================================================
+
+  --- Record Length ---
+  Record length check: expected=150, actual=150 [PASS]
+
+  --- Row Count ---
+  Row count check: raw=50, parsed=50 [PASS]
+
+  --- Field Extraction (first record) ---
+    CARD_NUM                       raw='0500024453765740' parsed='0500024453765740' [PASS]
+    CARD_ACCT_ID                   raw='00000000050' parsed='00000000050' [PASS]
+    CARD_CVV_CD                    raw='747' parsed='747' [PASS]
+    CARD_EMBOSSED_NAME             raw='Aniya Von' parsed='Aniya Von' [PASS]
+    CARD_EXPIRAION_DATE            raw='2023-03-09' parsed='2023-03-09' [PASS]
+    CARD_ACTIVE_STATUS             raw='Y' parsed='Y' [PASS]
+
+  --- Schema ---
+    root
+     |-- CARD_NUM: string (nullable = true)
+     |-- CARD_ACCT_ID: string (nullable = true)
+     |-- CARD_CVV_CD: string (nullable = true)
+     |-- CARD_EMBOSSED_NAME: string (nullable = true)
+     |-- CARD_EXPIRAION_DATE: string (nullable = true)
+     |-- CARD_ACTIVE_STATUS: string (nullable = true)
+     |-- FILLER: string (nullable = true)
+    
+
+  --- Sample Data (first 3 rows) ---
+    CARD_NUM             | CARD_ACCT_ID         | CARD_CVV_CD          | CARD_EMBOSSED_NAME   | CARD_EXPIRAION_DATE  | CARD_ACTIVE_STATUS  
+    ---------------------------------------------------------------------------------------------------------------------------------------
+    0500024453765740     | 00000000050          | 747                  | Aniya Von            | 2023-03-09           | Y                   
+    0683586198171516     | 00000000027          | 567                  | Ward Jones           | 2025-07-13           | Y                   
+    0923877193247330     | 00000000002          | 028                  | Enrico Rosenbaum     | 2024-08-11           | Y                   
