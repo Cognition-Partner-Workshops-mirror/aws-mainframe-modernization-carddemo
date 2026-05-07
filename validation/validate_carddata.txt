@@ -1,0 +1,78 @@
+======================================================================
+VALIDATION REPORT: carddata.txt  (CVACT02Y.cpy / CARD-RECORD)
+======================================================================
+Raw file line count        : 50
+Parsed DataFrame row count : 50
+Counts match               : True
+Expected record length     : 150
+
+----------------------------------------------------------------------
+Schema:
+----------------------------------------------------------------------
+  root
+   |-- CARD_NUM: string (nullable = true)
+   |-- CARD_ACCT_ID: string (nullable = true)
+   |-- CARD_CVV_CD: string (nullable = true)
+   |-- CARD_EMBOSSED_NAME: string (nullable = true)
+   |-- CARD_EXPIRAION_DATE: string (nullable = true)
+   |-- CARD_ACTIVE_STATUS: string (nullable = true)
+  
+
+----------------------------------------------------------------------
+Sample rows (first 5):
+----------------------------------------------------------------------
+
+  Row 1:
+    CARD_NUM                       = 0500024453765740
+    CARD_ACCT_ID                   = 00000000050
+    CARD_CVV_CD                    = 747
+    CARD_EMBOSSED_NAME             = Aniya Von
+    CARD_EXPIRAION_DATE            = 2023-03-09
+    CARD_ACTIVE_STATUS             = Y
+
+  Row 2:
+    CARD_NUM                       = 0683586198171516
+    CARD_ACCT_ID                   = 00000000027
+    CARD_CVV_CD                    = 567
+    CARD_EMBOSSED_NAME             = Ward Jones
+    CARD_EXPIRAION_DATE            = 2025-07-13
+    CARD_ACTIVE_STATUS             = Y
+
+  Row 3:
+    CARD_NUM                       = 0923877193247330
+    CARD_ACCT_ID                   = 00000000002
+    CARD_CVV_CD                    = 028
+    CARD_EMBOSSED_NAME             = Enrico Rosenbaum
+    CARD_EXPIRAION_DATE            = 2024-08-11
+    CARD_ACTIVE_STATUS             = Y
+
+  Row 4:
+    CARD_NUM                       = 0927987108636232
+    CARD_ACCT_ID                   = 00000000020
+    CARD_CVV_CD                    = 003
+    CARD_EMBOSSED_NAME             = Carter Veum
+    CARD_EXPIRAION_DATE            = 2024-03-13
+    CARD_ACTIVE_STATUS             = Y
+
+  Row 5:
+    CARD_NUM                       = 0982496213629795
+    CARD_ACCT_ID                   = 00000000012
+    CARD_CVV_CD                    = 075
+    CARD_EMBOSSED_NAME             = Maci Robel
+    CARD_EXPIRAION_DATE            = 2023-07-07
+    CARD_ACTIVE_STATUS             = Y
+
+----------------------------------------------------------------------
+Cross-check: First raw line manual extraction vs parsed values
+----------------------------------------------------------------------
+  Raw line length: 150
+  CARD_NUM                       raw='0500024453765740'
+  CARD_ACCT_ID                   raw='00000000050'
+  CARD_CVV_CD                    raw='747'
+  CARD_EMBOSSED_NAME             raw='Aniya Von                                         '
+  CARD_EXPIRAION_DATE            raw='2023-03-09'
+  CARD_ACTIVE_STATUS             raw='Y'
+
+======================================================================
+END OF VALIDATION REPORT
+======================================================================

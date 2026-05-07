@@ -1,0 +1,120 @@
+======================================================================
+VALIDATION REPORT: acctdata.txt  (CVACT01Y.cpy / ACCOUNT-RECORD)
+======================================================================
+Raw file line count        : 50
+Parsed DataFrame row count : 50
+Counts match               : True
+Expected record length     : 300
+
+----------------------------------------------------------------------
+Schema:
+----------------------------------------------------------------------
+  root
+   |-- ACCT_ID: string (nullable = true)
+   |-- ACCT_ACTIVE_STATUS: string (nullable = true)
+   |-- ACCT_CURR_BAL: decimal(12,2) (nullable = true)
+   |-- ACCT_CREDIT_LIMIT: decimal(12,2) (nullable = true)
+   |-- ACCT_CASH_CREDIT_LIMIT: decimal(12,2) (nullable = true)
+   |-- ACCT_OPEN_DATE: string (nullable = true)
+   |-- ACCT_EXPIRAION_DATE: string (nullable = true)
+   |-- ACCT_REISSUE_DATE: string (nullable = true)
+   |-- ACCT_CURR_CYC_CREDIT: decimal(12,2) (nullable = true)
+   |-- ACCT_CURR_CYC_DEBIT: decimal(12,2) (nullable = true)
+   |-- ACCT_ADDR_ZIP: string (nullable = true)
+   |-- ACCT_GROUP_ID: string (nullable = true)
+  
+
+----------------------------------------------------------------------
+Sample rows (first 5):
+----------------------------------------------------------------------
+
+  Row 1:
+    ACCT_ID                        = 00000000001
+    ACCT_ACTIVE_STATUS             = Y
+    ACCT_CURR_BAL                  = 194.00
+    ACCT_CREDIT_LIMIT              = 2020.00
+    ACCT_CASH_CREDIT_LIMIT         = 1020.00
+    ACCT_OPEN_DATE                 = 2014-11-20
+    ACCT_EXPIRAION_DATE            = 2025-05-20
+    ACCT_REISSUE_DATE              = 2025-05-20
+    ACCT_CURR_CYC_CREDIT           = 0.00
+    ACCT_CURR_CYC_DEBIT            = 0.00
+    ACCT_ADDR_ZIP                  = A000000000
+    ACCT_GROUP_ID                  = 
+
+  Row 2:
+    ACCT_ID                        = 00000000002
+    ACCT_ACTIVE_STATUS             = Y
+    ACCT_CURR_BAL                  = 158.00
+    ACCT_CREDIT_LIMIT              = 6130.00
+    ACCT_CASH_CREDIT_LIMIT         = 5448.00
+    ACCT_OPEN_DATE                 = 2013-06-19
+    ACCT_EXPIRAION_DATE            = 2024-08-11
+    ACCT_REISSUE_DATE              = 2024-08-11
+    ACCT_CURR_CYC_CREDIT           = 0.00
+    ACCT_CURR_CYC_DEBIT            = 0.00
+    ACCT_ADDR_ZIP                  = A000000000
+    ACCT_GROUP_ID                  = 
+
+  Row 3:
+    ACCT_ID                        = 00000000003
+    ACCT_ACTIVE_STATUS             = Y
+    ACCT_CURR_BAL                  = 147.00
+    ACCT_CREDIT_LIMIT              = 4909.00
+    ACCT_CASH_CREDIT_LIMIT         = 538.00
+    ACCT_OPEN_DATE                 = 2013-08-23
+    ACCT_EXPIRAION_DATE            = 2024-01-10
+    ACCT_REISSUE_DATE              = 2024-01-10
+    ACCT_CURR_CYC_CREDIT           = 0.00
+    ACCT_CURR_CYC_DEBIT            = 0.00
+    ACCT_ADDR_ZIP                  = A000000000
+    ACCT_GROUP_ID                  = 
+
+  Row 4:
+    ACCT_ID                        = 00000000004
+    ACCT_ACTIVE_STATUS             = Y
+    ACCT_CURR_BAL                  = 40.00
+    ACCT_CREDIT_LIMIT              = 3503.00
+    ACCT_CASH_CREDIT_LIMIT         = 2789.00
+    ACCT_OPEN_DATE                 = 2012-11-17
+    ACCT_EXPIRAION_DATE            = 2023-12-16
+    ACCT_REISSUE_DATE              = 2023-12-16
+    ACCT_CURR_CYC_CREDIT           = 0.00
+    ACCT_CURR_CYC_DEBIT            = 0.00
+    ACCT_ADDR_ZIP                  = A000000000
+    ACCT_GROUP_ID                  = 
+
+  Row 5:
+    ACCT_ID                        = 00000000005
+    ACCT_ACTIVE_STATUS             = Y
+    ACCT_CURR_BAL                  = 345.00
+    ACCT_CREDIT_LIMIT              = 3819.00
+    ACCT_CASH_CREDIT_LIMIT         = 2430.00
+    ACCT_OPEN_DATE                 = 2012-10-03
+    ACCT_EXPIRAION_DATE            = 2025-03-09
+    ACCT_REISSUE_DATE              = 2025-03-09
+    ACCT_CURR_CYC_CREDIT           = 0.00
+    ACCT_CURR_CYC_DEBIT            = 0.00
+    ACCT_ADDR_ZIP                  = A000000000
+    ACCT_GROUP_ID                  = 
+
+----------------------------------------------------------------------
+Cross-check: First raw line manual extraction vs parsed values
+----------------------------------------------------------------------
+  Raw line length: 300
+  ACCT_ID                        raw='00000000001'
+  ACCT_ACTIVE_STATUS             raw='Y'
+  ACCT_CURR_BAL                  raw='00000001940{'
+  ACCT_CREDIT_LIMIT              raw='00000020200{'
+  ACCT_CASH_CREDIT_LIMIT         raw='00000010200{'
+  ACCT_OPEN_DATE                 raw='2014-11-20'
+  ACCT_EXPIRAION_DATE            raw='2025-05-20'
+  ACCT_REISSUE_DATE              raw='2025-05-20'
+  ACCT_CURR_CYC_CREDIT           raw='00000000000{'
+  ACCT_CURR_CYC_DEBIT            raw='00000000000{'
+  ACCT_ADDR_ZIP                  raw='A000000000'
+  ACCT_GROUP_ID                  raw='          '
+
+======================================================================
+END OF VALIDATION REPORT
+======================================================================

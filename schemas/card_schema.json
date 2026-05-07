@@ -1,0 +1,71 @@
+{
+  "copybook": "CVACT02Y.cpy",
+  "record_name": "CARD-RECORD",
+  "record_length_bytes": 150,
+  "source_data_file": "app/data/ASCII/carddata.txt",
+  "fields": [
+    {
+      "field_name": "CARD_NUM",
+      "cobol_name": "CARD-NUM",
+      "cobol_pic": "X(16)",
+      "pyspark_type": "StringType",
+      "byte_offset": 0,
+      "byte_length": 16,
+      "description": "Credit card number (kept as string to preserve leading zeros)"
+    },
+    {
+      "field_name": "CARD_ACCT_ID",
+      "cobol_name": "CARD-ACCT-ID",
+      "cobol_pic": "9(11)",
+      "pyspark_type": "StringType",
+      "byte_offset": 16,
+      "byte_length": 11,
+      "description": "Linked account identifier (foreign key to ACCOUNT-RECORD, kept as string to preserve leading zeros)"
+    },
+    {
+      "field_name": "CARD_CVV_CD",
+      "cobol_name": "CARD-CVV-CD",
+      "cobol_pic": "9(03)",
+      "pyspark_type": "StringType",
+      "byte_offset": 27,
+      "byte_length": 3,
+      "description": "Card verification value (kept as string to preserve leading zeros)"
+    },
+    {
+      "field_name": "CARD_EMBOSSED_NAME",
+      "cobol_name": "CARD-EMBOSSED-NAME",
+      "cobol_pic": "X(50)",
+      "pyspark_type": "StringType",
+      "byte_offset": 30,
+      "byte_length": 50,
+      "description": "Name embossed on the physical card"
+    },
+    {
+      "field_name": "CARD_EXPIRAION_DATE",
+      "cobol_name": "CARD-EXPIRAION-DATE",
+      "cobol_pic": "X(10)",
+      "pyspark_type": "StringType",
+      "byte_offset": 80,
+      "byte_length": 10,
+      "description": "Card expiration date (YYYY-MM-DD format, note: original typo preserved)"
+    },
+    {
+      "field_name": "CARD_ACTIVE_STATUS",
+      "cobol_name": "CARD-ACTIVE-STATUS",
+      "cobol_pic": "X(01)",
+      "pyspark_type": "StringType",
+      "byte_offset": 90,
+      "byte_length": 1,
+      "description": "Card active status flag (Y/N)"
+    },
+    {
+      "field_name": "FILLER",
+      "cobol_name": "FILLER",
+      "cobol_pic": "X(59)",
+      "pyspark_type": "StringType",
+      "byte_offset": 91,
+      "byte_length": 59,
+      "description": "Reserved/unused space to pad record to 150 bytes (dropped from DataFrame)"
+    }
+  ]
+}
