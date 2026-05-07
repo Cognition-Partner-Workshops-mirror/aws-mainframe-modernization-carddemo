@@ -72,9 +72,10 @@ encoded as an **overpunch character** in the last byte:
 | `}` | 0 | − |
 | `J`–`R` | 1–9 | − |
 
-A PySpark UDF (`decode_signed_zoned_decimal`) translates the overpunch byte
-into an explicit sign and inserts the decimal point at the position indicated
-by the `V` clause.
+A pure Spark SQL expression (`_decode_signed_col`) built from chained
+`F.when()` calls translates the overpunch byte into an explicit sign and
+inserts the decimal point at the position indicated by the `V` clause.
+This avoids Python UDF serialization overhead and keeps execution in the JVM.
 
 **Example:** raw `00000001940{` → sign `+`, digits `000000019400`,
 with `V99` → `+0000000194.00`.  The result is cast to
