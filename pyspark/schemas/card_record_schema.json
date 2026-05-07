@@ -1,0 +1,78 @@
+{
+    "copybook": "CVACT02Y.cpy",
+    "record_name": "CARD-RECORD",
+    "record_length": 150,
+    "source_file": "app/data/ASCII/carddata.txt",
+    "fields": [
+        {
+            "name": "CARD-NUM",
+            "cobol_pic": "PIC X(16)",
+            "pyspark_type": "StringType",
+            "byte_offset": 0,
+            "length": 16,
+            "signed": false,
+            "decimal_places": 0,
+            "description": "Card number (stored as string to preserve leading zeros and avoid numeric overflow)"
+        },
+        {
+            "name": "CARD-ACCT-ID",
+            "cobol_pic": "PIC 9(11)",
+            "pyspark_type": "LongType",
+            "byte_offset": 16,
+            "length": 11,
+            "signed": false,
+            "decimal_places": 0,
+            "description": "Account identifier this card belongs to (FK to ACCOUNT-RECORD)"
+        },
+        {
+            "name": "CARD-CVV-CD",
+            "cobol_pic": "PIC 9(03)",
+            "pyspark_type": "StringType",
+            "byte_offset": 27,
+            "length": 3,
+            "signed": false,
+            "decimal_places": 0,
+            "description": "Card CVV code (stored as string to preserve leading zeros)"
+        },
+        {
+            "name": "CARD-EMBOSSED-NAME",
+            "cobol_pic": "PIC X(50)",
+            "pyspark_type": "StringType",
+            "byte_offset": 30,
+            "length": 50,
+            "signed": false,
+            "decimal_places": 0,
+            "description": "Name embossed on the card (left-justified, space-padded)"
+        },
+        {
+            "name": "CARD-EXPIRAION-DATE",
+            "cobol_pic": "PIC X(10)",
+            "pyspark_type": "DateType",
+            "byte_offset": 80,
+            "length": 10,
+            "signed": false,
+            "decimal_places": 0,
+            "description": "Card expiration date (YYYY-MM-DD format in ASCII export); note: misspelling is in original copybook"
+        },
+        {
+            "name": "CARD-ACTIVE-STATUS",
+            "cobol_pic": "PIC X(01)",
+            "pyspark_type": "StringType",
+            "byte_offset": 90,
+            "length": 1,
+            "signed": false,
+            "decimal_places": 0,
+            "description": "Card active status flag (Y/N)"
+        },
+        {
+            "name": "FILLER",
+            "cobol_pic": "PIC X(59)",
+            "pyspark_type": "StringType",
+            "byte_offset": 91,
+            "length": 59,
+            "signed": false,
+            "decimal_places": 0,
+            "description": "Reserved filler space (unused bytes to pad record to 150)"
+        }
+    ]
+}

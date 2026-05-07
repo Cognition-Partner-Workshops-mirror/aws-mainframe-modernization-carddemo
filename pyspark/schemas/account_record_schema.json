@@ -1,0 +1,138 @@
+{
+    "copybook": "CVACT01Y.cpy",
+    "record_name": "ACCOUNT-RECORD",
+    "record_length": 300,
+    "source_file": "app/data/ASCII/acctdata.txt",
+    "fields": [
+        {
+            "name": "ACCT-ID",
+            "cobol_pic": "PIC 9(11)",
+            "pyspark_type": "LongType",
+            "byte_offset": 0,
+            "length": 11,
+            "signed": false,
+            "decimal_places": 0,
+            "description": "Account identifier (numeric, unsigned)"
+        },
+        {
+            "name": "ACCT-ACTIVE-STATUS",
+            "cobol_pic": "PIC X(01)",
+            "pyspark_type": "StringType",
+            "byte_offset": 11,
+            "length": 1,
+            "signed": false,
+            "decimal_places": 0,
+            "description": "Account active status flag (Y/N)"
+        },
+        {
+            "name": "ACCT-CURR-BAL",
+            "cobol_pic": "PIC S9(10)V99",
+            "pyspark_type": "DecimalType(12,2)",
+            "byte_offset": 12,
+            "length": 12,
+            "signed": true,
+            "decimal_places": 2,
+            "description": "Current account balance; sign-overpunch in last byte, implied 2 decimal places"
+        },
+        {
+            "name": "ACCT-CREDIT-LIMIT",
+            "cobol_pic": "PIC S9(10)V99",
+            "pyspark_type": "DecimalType(12,2)",
+            "byte_offset": 24,
+            "length": 12,
+            "signed": true,
+            "decimal_places": 2,
+            "description": "Account credit limit; sign-overpunch in last byte, implied 2 decimal places"
+        },
+        {
+            "name": "ACCT-CASH-CREDIT-LIMIT",
+            "cobol_pic": "PIC S9(10)V99",
+            "pyspark_type": "DecimalType(12,2)",
+            "byte_offset": 36,
+            "length": 12,
+            "signed": true,
+            "decimal_places": 2,
+            "description": "Cash advance credit limit; sign-overpunch in last byte, implied 2 decimal places"
+        },
+        {
+            "name": "ACCT-OPEN-DATE",
+            "cobol_pic": "PIC X(10)",
+            "pyspark_type": "DateType",
+            "byte_offset": 48,
+            "length": 10,
+            "signed": false,
+            "decimal_places": 0,
+            "description": "Account open date (YYYY-MM-DD format in ASCII export)"
+        },
+        {
+            "name": "ACCT-EXPIRAION-DATE",
+            "cobol_pic": "PIC X(10)",
+            "pyspark_type": "DateType",
+            "byte_offset": 58,
+            "length": 10,
+            "signed": false,
+            "decimal_places": 0,
+            "description": "Account expiration date (YYYY-MM-DD format in ASCII export); note: misspelling is in original copybook"
+        },
+        {
+            "name": "ACCT-REISSUE-DATE",
+            "cobol_pic": "PIC X(10)",
+            "pyspark_type": "DateType",
+            "byte_offset": 68,
+            "length": 10,
+            "signed": false,
+            "decimal_places": 0,
+            "description": "Card reissue date (YYYY-MM-DD format in ASCII export)"
+        },
+        {
+            "name": "ACCT-CURR-CYC-CREDIT",
+            "cobol_pic": "PIC S9(10)V99",
+            "pyspark_type": "DecimalType(12,2)",
+            "byte_offset": 78,
+            "length": 12,
+            "signed": true,
+            "decimal_places": 2,
+            "description": "Current cycle credit amount; sign-overpunch in last byte, implied 2 decimal places"
+        },
+        {
+            "name": "ACCT-CURR-CYC-DEBIT",
+            "cobol_pic": "PIC S9(10)V99",
+            "pyspark_type": "DecimalType(12,2)",
+            "byte_offset": 90,
+            "length": 12,
+            "signed": true,
+            "decimal_places": 2,
+            "description": "Current cycle debit amount; sign-overpunch in last byte, implied 2 decimal places"
+        },
+        {
+            "name": "ACCT-ADDR-ZIP",
+            "cobol_pic": "PIC X(10)",
+            "pyspark_type": "StringType",
+            "byte_offset": 102,
+            "length": 10,
+            "signed": false,
+            "decimal_places": 0,
+            "description": "Account holder ZIP code"
+        },
+        {
+            "name": "ACCT-GROUP-ID",
+            "cobol_pic": "PIC X(10)",
+            "pyspark_type": "StringType",
+            "byte_offset": 112,
+            "length": 10,
+            "signed": false,
+            "decimal_places": 0,
+            "description": "Account group identifier"
+        },
+        {
+            "name": "FILLER",
+            "cobol_pic": "PIC X(178)",
+            "pyspark_type": "StringType",
+            "byte_offset": 122,
+            "length": 178,
+            "signed": false,
+            "decimal_places": 0,
+            "description": "Reserved filler space (unused bytes to pad record to 300)"
+        }
+    ]
+}
