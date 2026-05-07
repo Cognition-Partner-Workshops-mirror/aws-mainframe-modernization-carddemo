@@ -8,10 +8,10 @@
       "field_name": "CUST_ID",
       "cobol_name": "CUST-ID",
       "cobol_pic": "9(09)",
-      "pyspark_type": "LongType",
+      "pyspark_type": "StringType",
       "byte_offset": 0,
       "byte_length": 9,
-      "description": "Unique customer identifier (unsigned integer, 9 digits)"
+      "description": "Unique customer identifier (kept as string to preserve leading zeros)"
     },
     {
       "field_name": "CUST_FIRST_NAME",
@@ -116,10 +116,10 @@
       "field_name": "CUST_SSN",
       "cobol_name": "CUST-SSN",
       "cobol_pic": "9(09)",
-      "pyspark_type": "LongType",
+      "pyspark_type": "StringType",
       "byte_offset": 279,
       "byte_length": 9,
-      "description": "Social Security Number (9 digits)"
+      "description": "Social Security Number (kept as string to preserve leading zeros)"
     },
     {
       "field_name": "CUST_GOVT_ISSUED_ID",

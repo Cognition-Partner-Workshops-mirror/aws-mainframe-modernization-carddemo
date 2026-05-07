@@ -33,22 +33,40 @@ than cast to `DateType` because:
 2. Downstream consumers may need the raw format (e.g., `YYYY-MM-DD`).
 3. Preserves fidelity to the original COBOL definition.
 
-### 2.2 `PIC 9(n)` (unsigned) → `LongType` or `IntegerType`
+### 2.2 `PIC 9(n)` (unsigned) — Identifier vs. Numeric Fields
 
 Unsigned numeric fields in DISPLAY format occupy exactly `n` bytes (one ASCII
-digit per byte). The choice between `LongType` and `IntegerType` is based on
-the digit count:
+digit per byte).  However, not all `PIC 9(n)` fields should be cast to a
+numeric PySpark type.  The deciding factor is **whether leading zeros are
+semantically meaningful**.
+
+#### Identifier fields → `StringType`
+
+Mainframe identifiers (account IDs, customer IDs, SSNs, CVV codes) are
+zero-padded to a fixed width.  Casting these to an integer type strips the
+leading zeros, which breaks downstream joins and display formatting.  These
+fields are kept as `StringType` with whitespace trimmed.
+
+| Field               | PIC        | PySpark Type  | Rationale                                  |
+|---------------------|------------|---------------|--------------------------------------------|
+| `ACCT-ID`           | `9(11)`    | `StringType`  | Account key — leading zeros are significant|
+| `CUST-ID`           | `9(09)`    | `StringType`  | Customer key — leading zeros are significant|
+| `CUST-SSN`          | `9(09)`    | `StringType`  | SSN — leading zeros are significant (e.g., 020-xx-xxxx) |
+| `CARD-ACCT-ID`      | `9(11)`    | `StringType`  | FK to ACCOUNT-RECORD — must match ACCT-ID  |
+| `CARD-CVV-CD`       | `9(03)`    | `StringType`  | CVV codes like 007 must keep leading zeros |
+
+#### True numeric fields → `IntegerType` or `LongType`
+
+Fields that represent countable or measurable values (scores, counts) are
+cast to the narrowest integer type that fits:
 
 | Digit Count | PySpark Type    | Rationale                                  |
 |-------------|-----------------|---------------------------------------------|
 | ≤ 9         | `IntegerType`   | Fits within 32-bit signed integer range     |
 | 10–18       | `LongType`      | Requires 64-bit signed integer              |
 
-**Examples:**
-- `ACCT-ID           PIC 9(11)` → `LongType`  (11 digits exceeds int range)
-- `CUST-ID           PIC 9(09)` → `LongType`  (9 digits, but can reach 999 999 999)
-- `CUST-FICO-CREDIT-SCORE PIC 9(03)` → `IntegerType`
-- `CARD-CVV-CD       PIC 9(03)` → `IntegerType`
+**Example:**
+- `CUST-FICO-CREDIT-SCORE PIC 9(03)` → `IntegerType` (a numeric score, no meaningful leading zeros)
 
 > **Note on CARD-NUM (`PIC X(16)`):** Although this holds numeric digits, the
 > copybook declares it as `PIC X` (alphanumeric). It is kept as `StringType`
@@ -180,7 +198,32 @@ validation/
 
 ---
 
-## 7. Known Quirks in Source Data
+## 7. Byte-Offset Verification
+
+Each parser script validates field alignment at startup by checking that every
+field's `offset + length` equals the next field's offset, and that the last
+field's `offset + length` equals the declared record length.  This catches
+copybook transcription errors before any data is read.
+
+---
+
+## 8. Sign-Overpunch Unit Tests
+
+The `scripts/test_overpunch.py` test suite exercises the `decode_signed_zoned_decimal`
+function with:
+
+- All 10 positive overpunch characters (`{`, `A`–`I`)
+- All 10 negative overpunch characters (`}`, `J`–`R`)
+- Unsigned plain-digit inputs (fallback path)
+- Zero value, `None`, empty string, and whitespace edge cases
+- Large negative balance (`-9,999,999,999.99`)
+- Lookup-table completeness assertion (10 entries per sign)
+
+Run: `python scripts/test_overpunch.py`
+
+---
+
+## 9. Known Quirks in Source Data
 
 1. **Typo in field names:** The copybooks spell "expiration" as `EXPIRAION`
    (missing the 't'). This is preserved as-is in field names and schemas to

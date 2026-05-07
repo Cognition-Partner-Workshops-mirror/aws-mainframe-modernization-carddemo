@@ -17,19 +17,19 @@
       "field_name": "CARD_ACCT_ID",
       "cobol_name": "CARD-ACCT-ID",
       "cobol_pic": "9(11)",
-      "pyspark_type": "LongType",
+      "pyspark_type": "StringType",
       "byte_offset": 16,
       "byte_length": 11,
-      "description": "Linked account identifier (foreign key to ACCOUNT-RECORD)"
+      "description": "Linked account identifier (foreign key to ACCOUNT-RECORD, kept as string to preserve leading zeros)"
     },
     {
       "field_name": "CARD_CVV_CD",
       "cobol_name": "CARD-CVV-CD",
       "cobol_pic": "9(03)",
-      "pyspark_type": "IntegerType",
+      "pyspark_type": "StringType",
       "byte_offset": 27,
       "byte_length": 3,
-      "description": "Card verification value (3-digit code)"
+      "description": "Card verification value (kept as string to preserve leading zeros)"
     },
     {
       "field_name": "CARD_EMBOSSED_NAME",

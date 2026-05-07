@@ -3,7 +3,8 @@ PySpark script to parse app/data/ASCII/carddata.txt using the COBOL copybook
 layout defined in app/cpy/CVACT02Y.cpy (CARD-RECORD, 150 bytes).
 
 All fields are unsigned — no sign-overpunch decoding required.
-PIC 9(n) fields are cast to numeric types; PIC X(n) fields become strings.
+PIC 9(n) identifier fields (CARD_ACCT_ID, CARD_CVV_CD) are kept as StringType
+to preserve leading zeros.  See COPYBOOK_PARSING_NOTES.md for rationale.
 
 Usage:
     spark-submit scripts/parse_carddata.py
@@ -15,7 +16,7 @@ import os
 
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, substring, trim
-from pyspark.sql.types import IntegerType, LongType
+from pyspark.sql.types import StringType  # noqa: F401 – referenced in CARD_FIELDS metadata
 
 # ---------------------------------------------------------------------------
 # Field layout derived from CVACT02Y.cpy  (CARD-RECORD, 150 bytes)
@@ -24,8 +25,8 @@ from pyspark.sql.types import IntegerType, LongType
 # ---------------------------------------------------------------------------
 CARD_FIELDS = [
     ("CARD_NUM",             "X(16)",  "StringType",  0,   16),
-    ("CARD_ACCT_ID",         "9(11)",  "LongType",    16,  11),
-    ("CARD_CVV_CD",          "9(03)",  "IntegerType", 27,   3),
+    ("CARD_ACCT_ID",         "9(11)",  "StringType",  16,  11),
+    ("CARD_CVV_CD",          "9(03)",  "StringType",  27,   3),
     ("CARD_EMBOSSED_NAME",   "X(50)",  "StringType",  30,  50),
     ("CARD_EXPIRAION_DATE",  "X(10)",  "StringType",  80,  10),
     ("CARD_ACTIVE_STATUS",   "X(01)",  "StringType",  90,   1),
@@ -35,8 +36,34 @@ CARD_FIELDS = [
 RECORD_LENGTH = 150  # Total record length in bytes
 
 
+def verify_byte_offsets(fields, record_length):
+    """Validate that field offsets and lengths are contiguous and sum to record_length.
+
+    Checks that each field's offset + length equals the next field's offset, and
+    that the last field ends exactly at the declared record length.  Raises
+    ValueError on any misalignment.
+    """
+    for i in range(len(fields) - 1):
+        name, _, _, offset, length = fields[i]
+        next_name, _, _, next_offset, _ = fields[i + 1]
+        if offset + length != next_offset:
+            raise ValueError(
+                f"Byte-offset gap/overlap between {name} and {next_name}: "
+                f"{offset}+{length}={offset + length} but next offset is {next_offset}"
+            )
+    # Check last field reaches record_length
+    last_name, _, _, last_offset, last_length = fields[-1]
+    if last_offset + last_length != record_length:
+        raise ValueError(
+            f"Last field {last_name} ends at byte {last_offset + last_length}, "
+            f"but record length is {record_length}"
+        )
+
+
 def main():
     """Read carddata.txt, parse fields, validate, and write results."""
+    # Verify field layout alignment before processing any data
+    verify_byte_offsets(CARD_FIELDS, RECORD_LENGTH)
     # Resolve paths relative to the repo root
     repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     data_path = os.path.join(repo_root, "app", "data", "ASCII", "carddata.txt")
@@ -60,13 +87,9 @@ def main():
     )
 
     # --- Apply type conversions ---
-    # Unsigned numeric PIC 9(11) → LongType
-    parsed_df = parsed_df.withColumn("CARD_ACCT_ID", col("CARD_ACCT_ID").cast(LongType()))
+    # CARD_ACCT_ID and CARD_CVV_CD kept as StringType to preserve leading zeros
 
-    # Unsigned numeric PIC 9(03) → IntegerType
-    parsed_df = parsed_df.withColumn("CARD_CVV_CD", col("CARD_CVV_CD").cast(IntegerType()))
-
-    # Trim whitespace from string fields
+    # Trim whitespace from all string fields
     string_fields = [name for name, _, ptype, _, _ in CARD_FIELDS
                      if ptype == "StringType" and name != "FILLER"]
     for field in string_fields:

@@ -10,7 +10,7 @@ Expected record length     : 500
 Schema:
 ----------------------------------------------------------------------
   root
-   |-- CUST_ID: long (nullable = true)
+   |-- CUST_ID: string (nullable = true)
    |-- CUST_FIRST_NAME: string (nullable = true)
    |-- CUST_MIDDLE_NAME: string (nullable = true)
    |-- CUST_LAST_NAME: string (nullable = true)
@@ -22,7 +22,7 @@ Schema:
    |-- CUST_ADDR_ZIP: string (nullable = true)
    |-- CUST_PHONE_NUM_1: string (nullable = true)
    |-- CUST_PHONE_NUM_2: string (nullable = true)
-   |-- CUST_SSN: long (nullable = true)
+   |-- CUST_SSN: string (nullable = true)
    |-- CUST_GOVT_ISSUED_ID: string (nullable = true)
    |-- CUST_DOB_YYYYMMDD: string (nullable = true)
    |-- CUST_EFT_ACCOUNT_ID: string (nullable = true)
@@ -35,7 +35,7 @@ Sample rows (first 5):
 ----------------------------------------------------------------------
 
   Row 1:
-    CUST_ID                        = 1
+    CUST_ID                        = 000000001
     CUST_FIRST_NAME                = Immanuel
     CUST_MIDDLE_NAME               = Madeline
     CUST_LAST_NAME                 = Kessler
@@ -47,7 +47,7 @@ Sample rows (first 5):
     CUST_ADDR_ZIP                  = 12546
     CUST_PHONE_NUM_1               = (908)119-8310
     CUST_PHONE_NUM_2               = (373)693-8684
-    CUST_SSN                       = 20973888
+    CUST_SSN                       = 020973888
     CUST_GOVT_ISSUED_ID            = 00000000000049368437
     CUST_DOB_YYYYMMDD              = 1961-06-08
     CUST_EFT_ACCOUNT_ID            = 0053581756
@@ -55,7 +55,7 @@ Sample rows (first 5):
     CUST_FICO_CREDIT_SCORE         = 274
 
   Row 2:
-    CUST_ID                        = 2
+    CUST_ID                        = 000000002
     CUST_FIRST_NAME                = Enrico
     CUST_MIDDLE_NAME               = April
     CUST_LAST_NAME                 = Rosenbaum
@@ -75,7 +75,7 @@ Sample rows (first 5):
     CUST_FICO_CREDIT_SCORE         = 268
 
   Row 3:
-    CUST_ID                        = 3
+    CUST_ID                        = 000000003
     CUST_FIRST_NAME                = Larry
     CUST_MIDDLE_NAME               = Cody
     CUST_LAST_NAME                 = Homenick
@@ -95,7 +95,7 @@ Sample rows (first 5):
     CUST_FICO_CREDIT_SCORE         = 616
 
   Row 4:
-    CUST_ID                        = 4
+    CUST_ID                        = 000000004
     CUST_FIRST_NAME                = Delbert
     CUST_MIDDLE_NAME               = Kaia
     CUST_LAST_NAME                 = Parisian
@@ -115,7 +115,7 @@ Sample rows (first 5):
     CUST_FICO_CREDIT_SCORE         = 776
 
   Row 5:
-    CUST_ID                        = 5
+    CUST_ID                        = 000000005
     CUST_FIRST_NAME                = Treva
     CUST_MIDDLE_NAME               = Manley
     CUST_LAST_NAME                 = Schowalter

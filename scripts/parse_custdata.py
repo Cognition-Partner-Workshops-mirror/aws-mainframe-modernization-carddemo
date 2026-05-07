@@ -3,7 +3,8 @@ PySpark script to parse app/data/ASCII/custdata.txt using the COBOL copybook
 layout defined in app/cpy/CUSTREC.cpy (CUSTOMER-RECORD, 500 bytes).
 
 All fields in CUSTREC are unsigned (no sign-overpunch decoding needed).
-PIC 9(n) fields are cast to integer/long types; PIC X(n) fields become strings.
+PIC 9(n) identifier fields (CUST_ID, CUST_SSN) are kept as StringType to
+preserve leading zeros.  Only true numeric values (FICO score) are cast.
 
 Usage:
     spark-submit scripts/parse_custdata.py
@@ -15,7 +16,7 @@ import os
 
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, substring, trim
-from pyspark.sql.types import IntegerType, LongType
+from pyspark.sql.types import IntegerType
 
 # ---------------------------------------------------------------------------
 # Field layout derived from CUSTREC.cpy  (CUSTOMER-RECORD, 500 bytes)
@@ -23,7 +24,7 @@ from pyspark.sql.types import IntegerType, LongType
 # Offsets are 0-based byte positions within the 500-byte record.
 # ---------------------------------------------------------------------------
 CUSTOMER_FIELDS = [
-    ("CUST_ID",                 "9(09)",  "LongType",    0,    9),
+    ("CUST_ID",                 "9(09)",  "StringType",  0,    9),
     ("CUST_FIRST_NAME",         "X(25)",  "StringType",  9,   25),
     ("CUST_MIDDLE_NAME",        "X(25)",  "StringType",  34,  25),
     ("CUST_LAST_NAME",          "X(25)",  "StringType",  59,  25),
@@ -35,7 +36,7 @@ CUSTOMER_FIELDS = [
     ("CUST_ADDR_ZIP",           "X(10)",  "StringType",  239, 10),
     ("CUST_PHONE_NUM_1",        "X(15)",  "StringType",  249, 15),
     ("CUST_PHONE_NUM_2",        "X(15)",  "StringType",  264, 15),
-    ("CUST_SSN",                "9(09)",  "LongType",    279,  9),
+    ("CUST_SSN",                "9(09)",  "StringType",  279,  9),
     ("CUST_GOVT_ISSUED_ID",     "X(20)",  "StringType",  288, 20),
     ("CUST_DOB_YYYYMMDD",       "X(10)",  "StringType",  308, 10),
     ("CUST_EFT_ACCOUNT_ID",     "X(10)",  "StringType",  318, 10),
@@ -47,8 +48,34 @@ CUSTOMER_FIELDS = [
 RECORD_LENGTH = 500  # Total record length in bytes
 
 
+def verify_byte_offsets(fields, record_length):
+    """Validate that field offsets and lengths are contiguous and sum to record_length.
+
+    Checks that each field's offset + length equals the next field's offset, and
+    that the last field ends exactly at the declared record length.  Raises
+    ValueError on any misalignment.
+    """
+    for i in range(len(fields) - 1):
+        name, _, _, offset, length = fields[i]
+        next_name, _, _, next_offset, _ = fields[i + 1]
+        if offset + length != next_offset:
+            raise ValueError(
+                f"Byte-offset gap/overlap between {name} and {next_name}: "
+                f"{offset}+{length}={offset + length} but next offset is {next_offset}"
+            )
+    # Check last field reaches record_length
+    last_name, _, _, last_offset, last_length = fields[-1]
+    if last_offset + last_length != record_length:
+        raise ValueError(
+            f"Last field {last_name} ends at byte {last_offset + last_length}, "
+            f"but record length is {record_length}"
+        )
+
+
 def main():
     """Read custdata.txt, parse fields, validate, and write results."""
+    # Verify field layout alignment before processing any data
+    verify_byte_offsets(CUSTOMER_FIELDS, RECORD_LENGTH)
     # Resolve paths relative to the repo root
     repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     data_path = os.path.join(repo_root, "app", "data", "ASCII", "custdata.txt")
@@ -72,11 +99,9 @@ def main():
     )
 
     # --- Apply type conversions ---
-    # Unsigned numeric PIC 9(09) fields → LongType
-    parsed_df = parsed_df.withColumn("CUST_ID", col("CUST_ID").cast(LongType()))
-    parsed_df = parsed_df.withColumn("CUST_SSN", col("CUST_SSN").cast(LongType()))
+    # CUST_ID and CUST_SSN kept as StringType to preserve leading zeros
 
-    # Unsigned numeric PIC 9(03) → IntegerType
+    # Unsigned numeric PIC 9(03) → IntegerType (true numeric, no meaningful leading zeros)
     parsed_df = parsed_df.withColumn(
         "CUST_FICO_CREDIT_SCORE", col("CUST_FICO_CREDIT_SCORE").cast(IntegerType())
     )

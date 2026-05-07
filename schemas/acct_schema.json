@@ -8,10 +8,10 @@
       "field_name": "ACCT_ID",
       "cobol_name": "ACCT-ID",
       "cobol_pic": "9(11)",
-      "pyspark_type": "LongType",
+      "pyspark_type": "StringType",
       "byte_offset": 0,
       "byte_length": 11,
-      "description": "Unique account identifier (unsigned integer, 11 digits)"
+      "description": "Unique account identifier (kept as string to preserve leading zeros)"
     },
     {
       "field_name": "ACCT_ACTIVE_STATUS",

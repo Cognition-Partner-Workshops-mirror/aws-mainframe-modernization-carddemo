@@ -10,7 +10,7 @@ Expected record length     : 300
 Schema:
 ----------------------------------------------------------------------
   root
-   |-- ACCT_ID: long (nullable = true)
+   |-- ACCT_ID: string (nullable = true)
    |-- ACCT_ACTIVE_STATUS: string (nullable = true)
    |-- ACCT_CURR_BAL: decimal(12,2) (nullable = true)
    |-- ACCT_CREDIT_LIMIT: decimal(12,2) (nullable = true)
@@ -29,7 +29,7 @@ Sample rows (first 5):
 ----------------------------------------------------------------------
 
   Row 1:
-    ACCT_ID                        = 1
+    ACCT_ID                        = 00000000001
     ACCT_ACTIVE_STATUS             = Y
     ACCT_CURR_BAL                  = 194.00
     ACCT_CREDIT_LIMIT              = 2020.00
@@ -43,7 +43,7 @@ Sample rows (first 5):
     ACCT_GROUP_ID                  = 
 
   Row 2:
-    ACCT_ID                        = 2
+    ACCT_ID                        = 00000000002
     ACCT_ACTIVE_STATUS             = Y
     ACCT_CURR_BAL                  = 158.00
     ACCT_CREDIT_LIMIT              = 6130.00
@@ -57,7 +57,7 @@ Sample rows (first 5):
     ACCT_GROUP_ID                  = 
 
   Row 3:
-    ACCT_ID                        = 3
+    ACCT_ID                        = 00000000003
     ACCT_ACTIVE_STATUS             = Y
     ACCT_CURR_BAL                  = 147.00
     ACCT_CREDIT_LIMIT              = 4909.00
@@ -71,7 +71,7 @@ Sample rows (first 5):
     ACCT_GROUP_ID                  = 
 
   Row 4:
-    ACCT_ID                        = 4
+    ACCT_ID                        = 00000000004
     ACCT_ACTIVE_STATUS             = Y
     ACCT_CURR_BAL                  = 40.00
     ACCT_CREDIT_LIMIT              = 3503.00
@@ -85,7 +85,7 @@ Sample rows (first 5):
     ACCT_GROUP_ID                  = 
 
   Row 5:
-    ACCT_ID                        = 5
+    ACCT_ID                        = 00000000005
     ACCT_ACTIVE_STATUS             = Y
     ACCT_CURR_BAL                  = 345.00
     ACCT_CREDIT_LIMIT              = 3819.00

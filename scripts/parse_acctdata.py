@@ -16,7 +16,7 @@ from decimal import Decimal
 
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, substring, trim, udf
-from pyspark.sql.types import DecimalType, LongType
+from pyspark.sql.types import DecimalType
 
 # ---------------------------------------------------------------------------
 # Sign-overpunch lookup tables (EBCDIC-to-ASCII DISPLAY format)
@@ -78,7 +78,7 @@ decode_signed_udf = udf(
 # Offsets are 0-based byte positions within the 300-byte record.
 # ---------------------------------------------------------------------------
 ACCOUNT_FIELDS = [
-    ("ACCT_ID",                "9(11)",      "LongType",    0,   11),
+    ("ACCT_ID",                "9(11)",      "StringType",  0,   11),
     ("ACCT_ACTIVE_STATUS",     "X(01)",      "StringType",  11,   1),
     ("ACCT_CURR_BAL",          "S9(10)V99",  "DecimalType", 12,  12),
     ("ACCT_CREDIT_LIMIT",      "S9(10)V99",  "DecimalType", 24,  12),
@@ -96,8 +96,34 @@ ACCOUNT_FIELDS = [
 RECORD_LENGTH = 300  # Total record length in bytes
 
 
+def verify_byte_offsets(fields, record_length):
+    """Validate that field offsets and lengths are contiguous and sum to record_length.
+
+    Checks that each field's offset + length equals the next field's offset, and
+    that the last field ends exactly at the declared record length.  Raises
+    ValueError on any misalignment.
+    """
+    for i in range(len(fields) - 1):
+        name, _, _, offset, length = fields[i]
+        next_name, _, _, next_offset, _ = fields[i + 1]
+        if offset + length != next_offset:
+            raise ValueError(
+                f"Byte-offset gap/overlap between {name} and {next_name}: "
+                f"{offset}+{length}={offset + length} but next offset is {next_offset}"
+            )
+    # Check last field reaches record_length
+    last_name, _, _, last_offset, last_length = fields[-1]
+    if last_offset + last_length != record_length:
+        raise ValueError(
+            f"Last field {last_name} ends at byte {last_offset + last_length}, "
+            f"but record length is {record_length}"
+        )
+
+
 def main():
     """Read acctdata.txt, parse fields, validate, and write results."""
+    # Verify field layout alignment before processing any data
+    verify_byte_offsets(ACCOUNT_FIELDS, RECORD_LENGTH)
     # Resolve paths relative to the repo root
     repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     data_path = os.path.join(repo_root, "app", "data", "ASCII", "acctdata.txt")
@@ -126,10 +152,9 @@ def main():
     for field in signed_fields:
         parsed_df = parsed_df.withColumn(field, decode_signed_udf(col(field)))
 
-    # Unsigned numeric fields → LongType
-    parsed_df = parsed_df.withColumn("ACCT_ID", col("ACCT_ID").cast(LongType()))
+    # ACCT_ID kept as StringType to preserve leading zeros (mainframe identifiers)
 
-    # Trim whitespace from string fields
+    # Trim whitespace from all string fields (including PIC 9 identifiers)
     string_fields = [name for name, _, ptype, _, _ in ACCOUNT_FIELDS
                      if ptype == "StringType" and name != "FILLER"]
     for field in string_fields:
