@@ -1,0 +1,162 @@
+======================================================================
+VALIDATION REPORT: custdata.txt  (CUSTREC.cpy / CUSTOMER-RECORD)
+======================================================================
+Raw file line count        : 50
+Parsed DataFrame row count : 50
+Counts match               : True
+Expected record length     : 500
+
+----------------------------------------------------------------------
+Schema:
+----------------------------------------------------------------------
+  root
+   |-- CUST_ID: long (nullable = true)
+   |-- CUST_FIRST_NAME: string (nullable = true)
+   |-- CUST_MIDDLE_NAME: string (nullable = true)
+   |-- CUST_LAST_NAME: string (nullable = true)
+   |-- CUST_ADDR_LINE_1: string (nullable = true)
+   |-- CUST_ADDR_LINE_2: string (nullable = true)
+   |-- CUST_ADDR_LINE_3: string (nullable = true)
+   |-- CUST_ADDR_STATE_CD: string (nullable = true)
+   |-- CUST_ADDR_COUNTRY_CD: string (nullable = true)
+   |-- CUST_ADDR_ZIP: string (nullable = true)
+   |-- CUST_PHONE_NUM_1: string (nullable = true)
+   |-- CUST_PHONE_NUM_2: string (nullable = true)
+   |-- CUST_SSN: long (nullable = true)
+   |-- CUST_GOVT_ISSUED_ID: string (nullable = true)
+   |-- CUST_DOB_YYYYMMDD: string (nullable = true)
+   |-- CUST_EFT_ACCOUNT_ID: string (nullable = true)
+   |-- CUST_PRI_CARD_HOLDER_IND: string (nullable = true)
+   |-- CUST_FICO_CREDIT_SCORE: integer (nullable = true)
+  
+
+----------------------------------------------------------------------
+Sample rows (first 5):
+----------------------------------------------------------------------
+
+  Row 1:
+    CUST_ID                        = 1
+    CUST_FIRST_NAME                = Immanuel
+    CUST_MIDDLE_NAME               = Madeline
+    CUST_LAST_NAME                 = Kessler
+    CUST_ADDR_LINE_1               = 618 Deshaun Route
+    CUST_ADDR_LINE_2               = Apt. 802
+    CUST_ADDR_LINE_3               = Altenwerthshire
+    CUST_ADDR_STATE_CD             = NC
+    CUST_ADDR_COUNTRY_CD           = USA
+    CUST_ADDR_ZIP                  = 12546
+    CUST_PHONE_NUM_1               = (908)119-8310
+    CUST_PHONE_NUM_2               = (373)693-8684
+    CUST_SSN                       = 20973888
+    CUST_GOVT_ISSUED_ID            = 00000000000049368437
+    CUST_DOB_YYYYMMDD              = 1961-06-08
+    CUST_EFT_ACCOUNT_ID            = 0053581756
+    CUST_PRI_CARD_HOLDER_IND       = Y
+    CUST_FICO_CREDIT_SCORE         = 274
+
+  Row 2:
+    CUST_ID                        = 2
+    CUST_FIRST_NAME                = Enrico
+    CUST_MIDDLE_NAME               = April
+    CUST_LAST_NAME                 = Rosenbaum
+    CUST_ADDR_LINE_1               = 4917 Myrna Flats
+    CUST_ADDR_LINE_2               = Apt. 453
+    CUST_ADDR_LINE_3               = West Bernita
+    CUST_ADDR_STATE_CD             = IN
+    CUST_ADDR_COUNTRY_CD           = USA
+    CUST_ADDR_ZIP                  = 22770
+    CUST_PHONE_NUM_1               = (429)706-9510
+    CUST_PHONE_NUM_2               = (744)950-5272
+    CUST_SSN                       = 587518382
+    CUST_GOVT_ISSUED_ID            = 00000000000506210371
+    CUST_DOB_YYYYMMDD              = 1961-10-08
+    CUST_EFT_ACCOUNT_ID            = 0069194009
+    CUST_PRI_CARD_HOLDER_IND       = Y
+    CUST_FICO_CREDIT_SCORE         = 268
+
+  Row 3:
+    CUST_ID                        = 3
+    CUST_FIRST_NAME                = Larry
+    CUST_MIDDLE_NAME               = Cody
+    CUST_LAST_NAME                 = Homenick
+    CUST_ADDR_LINE_1               = 362 Esta Parks
+    CUST_ADDR_LINE_2               = Apt. 390
+    CUST_ADDR_LINE_3               = New Gladys
+    CUST_ADDR_STATE_CD             = GA
+    CUST_ADDR_COUNTRY_CD           = USA
+    CUST_ADDR_ZIP                  = 19852-6716
+    CUST_PHONE_NUM_1               = (950)396-9024
+    CUST_PHONE_NUM_2               = (685)168-8826
+    CUST_SSN                       = 317460867
+    CUST_GOVT_ISSUED_ID            = 00000000000052419303
+    CUST_DOB_YYYYMMDD              = 1987-11-30
+    CUST_EFT_ACCOUNT_ID            = 0006465789
+    CUST_PRI_CARD_HOLDER_IND       = Y
+    CUST_FICO_CREDIT_SCORE         = 616
+
+  Row 4:
+    CUST_ID                        = 4
+    CUST_FIRST_NAME                = Delbert
+    CUST_MIDDLE_NAME               = Kaia
+    CUST_LAST_NAME                 = Parisian
+    CUST_ADDR_LINE_1               = 638 Blanda Gateway
+    CUST_ADDR_LINE_2               = Apt. 076
+    CUST_ADDR_LINE_3               = Lake Virginie
+    CUST_ADDR_STATE_CD             = MI
+    CUST_ADDR_COUNTRY_CD           = USA
+    CUST_ADDR_ZIP                  = 39035-0455
+    CUST_PHONE_NUM_1               = (801)603-4121
+    CUST_PHONE_NUM_2               = (156)074-6837
+    CUST_SSN                       = 660354258
+    CUST_GOVT_ISSUED_ID            = 00000000000068579249
+    CUST_DOB_YYYYMMDD              = 1985-01-13
+    CUST_EFT_ACCOUNT_ID            = 0040802739
+    CUST_PRI_CARD_HOLDER_IND       = Y
+    CUST_FICO_CREDIT_SCORE         = 776
+
+  Row 5:
+    CUST_ID                        = 5
+    CUST_FIRST_NAME                = Treva
+    CUST_MIDDLE_NAME               = Manley
+    CUST_LAST_NAME                 = Schowalter
+    CUST_ADDR_LINE_1               = 5653 Legros Plaza
+    CUST_ADDR_LINE_2               = Apt. 968
+    CUST_ADDR_LINE_3               = Alvinaport
+    CUST_ADDR_STATE_CD             = MI
+    CUST_ADDR_COUNTRY_CD           = USA
+    CUST_ADDR_ZIP                  = 02251-1698
+    CUST_PHONE_NUM_1               = (978)775-4633
+    CUST_PHONE_NUM_2               = (439)943-7644
+    CUST_SSN                       = 611264288
+    CUST_GOVT_ISSUED_ID            = 00000000000639799754
+    CUST_DOB_YYYYMMDD              = 1971-09-29
+    CUST_EFT_ACCOUNT_ID            = 0006365573
+    CUST_PRI_CARD_HOLDER_IND       = Y
+    CUST_FICO_CREDIT_SCORE         = 529
+
+----------------------------------------------------------------------
+Cross-check: First raw line manual extraction vs parsed values
+----------------------------------------------------------------------
+  Raw line length: 500
+  CUST_ID                        raw='000000001'
+  CUST_FIRST_NAME                raw='Immanuel                 '
+  CUST_MIDDLE_NAME               raw='Madeline                 '
+  CUST_LAST_NAME                 raw='Kessler                  '
+  CUST_ADDR_LINE_1               raw='618 Deshaun Route                                 '
+  CUST_ADDR_LINE_2               raw='Apt. 802                                          '
+  CUST_ADDR_LINE_3               raw='Altenwerthshire                                   '
+  CUST_ADDR_STATE_CD             raw='NC'
+  CUST_ADDR_COUNTRY_CD           raw='USA'
+  CUST_ADDR_ZIP                  raw='12546     '
+  CUST_PHONE_NUM_1               raw='(908)119-8310  '
+  CUST_PHONE_NUM_2               raw='(373)693-8684  '
+  CUST_SSN                       raw='020973888'
+  CUST_GOVT_ISSUED_ID            raw='00000000000049368437'
+  CUST_DOB_YYYYMMDD              raw='1961-06-08'
+  CUST_EFT_ACCOUNT_ID            raw='0053581756'
+  CUST_PRI_CARD_HOLDER_IND       raw='Y'
+  CUST_FICO_CREDIT_SCORE         raw='274'
+
+======================================================================
+END OF VALIDATION REPORT
+======================================================================
