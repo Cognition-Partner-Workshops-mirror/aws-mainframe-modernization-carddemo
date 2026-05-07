@@ -1,0 +1,57 @@
+{
+  "source_file": "carddata.txt",
+  "copybook": "CVACT02Y.cpy",
+  "raw_line_count": 50,
+  "parsed_row_count": 50,
+  "counts_match": true,
+  "schema_fields": [
+    "CARD_NUM",
+    "CARD_ACCT_ID",
+    "CARD_CVV_CD",
+    "CARD_EMBOSSED_NAME",
+    "CARD_EXPIRAION_DATE",
+    "CARD_ACTIVE_STATUS"
+  ],
+  "sample_rows": [
+    {
+      "CARD_NUM": "0500024453765740",
+      "CARD_ACCT_ID": 50,
+      "CARD_CVV_CD": 747,
+      "CARD_EMBOSSED_NAME": "Aniya Von",
+      "CARD_EXPIRAION_DATE": "2023-03-09",
+      "CARD_ACTIVE_STATUS": "Y"
+    },
+    {
+      "CARD_NUM": "0683586198171516",
+      "CARD_ACCT_ID": 27,
+      "CARD_CVV_CD": 567,
+      "CARD_EMBOSSED_NAME": "Ward Jones",
+      "CARD_EXPIRAION_DATE": "2025-07-13",
+      "CARD_ACTIVE_STATUS": "Y"
+    },
+    {
+      "CARD_NUM": "0923877193247330",
+      "CARD_ACCT_ID": 2,
+      "CARD_CVV_CD": 28,
+      "CARD_EMBOSSED_NAME": "Enrico Rosenbaum",
+      "CARD_EXPIRAION_DATE": "2024-08-11",
+      "CARD_ACTIVE_STATUS": "Y"
+    },
+    {
+      "CARD_NUM": "0927987108636232",
+      "CARD_ACCT_ID": 20,
+      "CARD_CVV_CD": 3,
+      "CARD_EMBOSSED_NAME": "Carter Veum",
+      "CARD_EXPIRAION_DATE": "2024-03-13",
+      "CARD_ACTIVE_STATUS": "Y"
+    },
+    {
+      "CARD_NUM": "0982496213629795",
+      "CARD_ACCT_ID": 12,
+      "CARD_CVV_CD": 75,
+      "CARD_EMBOSSED_NAME": "Maci Robel",
+      "CARD_EXPIRAION_DATE": "2023-07-07",
+      "CARD_ACTIVE_STATUS": "Y"
+    }
+  ]
+}
