@@ -11,19 +11,11 @@ Usage:
     python scripts/parse_carddata.py
 """
 
-import json
 import os
-import sys
 
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, substring, trim
-from pyspark.sql.types import (
-    IntegerType,
-    LongType,
-    StringType,
-    StructField,
-    StructType,
-)
+from pyspark.sql.types import IntegerType, LongType
 
 # ---------------------------------------------------------------------------
 # Field layout derived from CVACT02Y.cpy  (CARD-RECORD, 150 bytes)

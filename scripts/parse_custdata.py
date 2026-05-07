@@ -11,19 +11,11 @@ Usage:
     python scripts/parse_custdata.py
 """
 
-import json
 import os
-import sys
 
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, substring, trim
-from pyspark.sql.types import (
-    IntegerType,
-    LongType,
-    StringType,
-    StructField,
-    StructType,
-)
+from pyspark.sql.types import IntegerType, LongType
 
 # ---------------------------------------------------------------------------
 # Field layout derived from CUSTREC.cpy  (CUSTOMER-RECORD, 500 bytes)

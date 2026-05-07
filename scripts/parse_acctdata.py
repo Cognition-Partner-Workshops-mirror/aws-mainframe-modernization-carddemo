@@ -11,21 +11,12 @@ Usage:
     python scripts/parse_acctdata.py
 """
 
-import json
 import os
-import sys
 from decimal import Decimal
 
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, substring, trim, udf
-from pyspark.sql.types import (
-    DecimalType,
-    IntegerType,
-    LongType,
-    StringType,
-    StructField,
-    StructType,
-)
+from pyspark.sql.types import DecimalType, LongType
 
 # ---------------------------------------------------------------------------
 # Sign-overpunch lookup tables (EBCDIC-to-ASCII DISPLAY format)
