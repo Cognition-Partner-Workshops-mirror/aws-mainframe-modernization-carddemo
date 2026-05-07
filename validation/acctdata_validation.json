@@ -1,0 +1,80 @@
+{
+  "source_file": "app/data/ASCII/acctdata.txt",
+  "copybook": "app/cpy/CVACT01Y.cpy",
+  "record_length_bytes": 300,
+  "raw_line_count": 50,
+  "parsed_row_count": 50,
+  "counts_match": true,
+  "sample_records": [
+    {
+      "ACCT_ID": 1,
+      "ACCT_ACTIVE_STATUS": "Y",
+      "ACCT_CURR_BAL": "194.00",
+      "ACCT_CREDIT_LIMIT": "2020.00",
+      "ACCT_CASH_CREDIT_LIMIT": "1020.00",
+      "ACCT_OPEN_DATE": "2014-11-20",
+      "ACCT_EXPIRAION_DATE": "2025-05-20",
+      "ACCT_REISSUE_DATE": "2025-05-20",
+      "ACCT_CURR_CYC_CREDIT": "0.00",
+      "ACCT_CURR_CYC_DEBIT": "0.00",
+      "ACCT_ADDR_ZIP": "A000000000",
+      "ACCT_GROUP_ID": ""
+    },
+    {
+      "ACCT_ID": 2,
+      "ACCT_ACTIVE_STATUS": "Y",
+      "ACCT_CURR_BAL": "158.00",
+      "ACCT_CREDIT_LIMIT": "6130.00",
+      "ACCT_CASH_CREDIT_LIMIT": "5448.00",
+      "ACCT_OPEN_DATE": "2013-06-19",
+      "ACCT_EXPIRAION_DATE": "2024-08-11",
+      "ACCT_REISSUE_DATE": "2024-08-11",
+      "ACCT_CURR_CYC_CREDIT": "0.00",
+      "ACCT_CURR_CYC_DEBIT": "0.00",
+      "ACCT_ADDR_ZIP": "A000000000",
+      "ACCT_GROUP_ID": ""
+    },
+    {
+      "ACCT_ID": 3,
+      "ACCT_ACTIVE_STATUS": "Y",
+      "ACCT_CURR_BAL": "147.00",
+      "ACCT_CREDIT_LIMIT": "4909.00",
+      "ACCT_CASH_CREDIT_LIMIT": "538.00",
+      "ACCT_OPEN_DATE": "2013-08-23",
+      "ACCT_EXPIRAION_DATE": "2024-01-10",
+      "ACCT_REISSUE_DATE": "2024-01-10",
+      "ACCT_CURR_CYC_CREDIT": "0.00",
+      "ACCT_CURR_CYC_DEBIT": "0.00",
+      "ACCT_ADDR_ZIP": "A000000000",
+      "ACCT_GROUP_ID": ""
+    },
+    {
+      "ACCT_ID": 4,
+      "ACCT_ACTIVE_STATUS": "Y",
+      "ACCT_CURR_BAL": "40.00",
+      "ACCT_CREDIT_LIMIT": "3503.00",
+      "ACCT_CASH_CREDIT_LIMIT": "2789.00",
+      "ACCT_OPEN_DATE": "2012-11-17",
+      "ACCT_EXPIRAION_DATE": "2023-12-16",
+      "ACCT_REISSUE_DATE": "2023-12-16",
+      "ACCT_CURR_CYC_CREDIT": "0.00",
+      "ACCT_CURR_CYC_DEBIT": "0.00",
+      "ACCT_ADDR_ZIP": "A000000000",
+      "ACCT_GROUP_ID": ""
+    },
+    {
+      "ACCT_ID": 5,
+      "ACCT_ACTIVE_STATUS": "Y",
+      "ACCT_CURR_BAL": "345.00",
+      "ACCT_CREDIT_LIMIT": "3819.00",
+      "ACCT_CASH_CREDIT_LIMIT": "2430.00",
+      "ACCT_OPEN_DATE": "2012-10-03",
+      "ACCT_EXPIRAION_DATE": "2025-03-09",
+      "ACCT_REISSUE_DATE": "2025-03-09",
+      "ACCT_CURR_CYC_CREDIT": "0.00",
+      "ACCT_CURR_CYC_DEBIT": "0.00",
+      "ACCT_ADDR_ZIP": "A000000000",
+      "ACCT_GROUP_ID": ""
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "copybook": "CVACT02Y.cpy",
+  "record_name": "CARD-RECORD",
+  "record_length": 150,
+  "data_file": "app/data/ASCII/carddata.txt",
+  "fields": [
+    {
+      "name": "CARD-NUM",
+      "cobol_pic": "PIC X(16)",
+      "pyspark_type": "StringType",
+      "offset": 0,
+      "length": 16,
+      "description": "Card number"
+    },
+    {
+      "name": "CARD-ACCT-ID",
+      "cobol_pic": "PIC 9(11)",
+      "pyspark_type": "LongType",
+      "offset": 16,
+      "length": 11,
+      "description": "Associated account identifier, unsigned numeric"
+    },
+    {
+      "name": "CARD-CVV-CD",
+      "cobol_pic": "PIC 9(03)",
+      "pyspark_type": "IntegerType",
+      "offset": 27,
+      "length": 3,
+      "description": "Card CVV code, unsigned numeric"
+    },
+    {
+      "name": "CARD-EMBOSSED-NAME",
+      "cobol_pic": "PIC X(50)",
+      "pyspark_type": "StringType",
+      "offset": 30,
+      "length": 50,
+      "description": "Name embossed on card"
+    },
+    {
+      "name": "CARD-EXPIRAION-DATE",
+      "cobol_pic": "PIC X(10)",
+      "pyspark_type": "StringType",
+      "offset": 80,
+      "length": 10,
+      "description": "Card expiration date (YYYY-MM-DD format)"
+    },
+    {
+      "name": "CARD-ACTIVE-STATUS",
+      "cobol_pic": "PIC X(01)",
+      "pyspark_type": "StringType",
+      "offset": 90,
+      "length": 1,
+      "description": "Card active status flag"
+    },
+    {
+      "name": "FILLER",
+      "cobol_pic": "PIC X(59)",
+      "pyspark_type": "StringType",
+      "offset": 91,
+      "length": 59,
+      "description": "Reserved filler space"
+    }
+  ]
+}
