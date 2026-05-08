@@ -1,0 +1,125 @@
+{
+  "copybook": "CVACT01Y.cpy",
+  "record_name": "ACCOUNT-RECORD",
+  "record_length_bytes": 300,
+  "source_data_file": "app/data/ASCII/acctdata.txt",
+  "fields": [
+    {
+      "name": "ACCT_ID",
+      "cobol_name": "ACCT-ID",
+      "cobol_pic": "9(11)",
+      "pyspark_type": "LongType",
+      "byte_offset": 0,
+      "length": 11,
+      "description": "Account identifier – unsigned 11-digit integer"
+    },
+    {
+      "name": "ACCT_ACTIVE_STATUS",
+      "cobol_name": "ACCT-ACTIVE-STATUS",
+      "cobol_pic": "X(01)",
+      "pyspark_type": "StringType",
+      "byte_offset": 11,
+      "length": 1,
+      "description": "Active status flag (e.g. Y/N)"
+    },
+    {
+      "name": "ACCT_CURR_BAL",
+      "cobol_name": "ACCT-CURR-BAL",
+      "cobol_pic": "S9(10)V99",
+      "pyspark_type": "DecimalType(12,2)",
+      "byte_offset": 12,
+      "length": 12,
+      "description": "Current balance – signed zoned-decimal with 2 implied decimals; last byte carries sign overpunch"
+    },
+    {
+      "name": "ACCT_CREDIT_LIMIT",
+      "cobol_name": "ACCT-CREDIT-LIMIT",
+      "cobol_pic": "S9(10)V99",
+      "pyspark_type": "DecimalType(12,2)",
+      "byte_offset": 24,
+      "length": 12,
+      "description": "Credit limit – signed zoned-decimal with 2 implied decimals; last byte carries sign overpunch"
+    },
+    {
+      "name": "ACCT_CASH_CREDIT_LIMIT",
+      "cobol_name": "ACCT-CASH-CREDIT-LIMIT",
+      "cobol_pic": "S9(10)V99",
+      "pyspark_type": "DecimalType(12,2)",
+      "byte_offset": 36,
+      "length": 12,
+      "description": "Cash credit limit – signed zoned-decimal with 2 implied decimals; last byte carries sign overpunch"
+    },
+    {
+      "name": "ACCT_OPEN_DATE",
+      "cobol_name": "ACCT-OPEN-DATE",
+      "cobol_pic": "X(10)",
+      "pyspark_type": "StringType",
+      "byte_offset": 48,
+      "length": 10,
+      "description": "Account open date (YYYY-MM-DD format in data)"
+    },
+    {
+      "name": "ACCT_EXPIRAION_DATE",
+      "cobol_name": "ACCT-EXPIRAION-DATE",
+      "cobol_pic": "X(10)",
+      "pyspark_type": "StringType",
+      "byte_offset": 58,
+      "length": 10,
+      "description": "Account expiration date (YYYY-MM-DD format in data); note: original copybook has typo 'EXPIRAION'"
+    },
+    {
+      "name": "ACCT_REISSUE_DATE",
+      "cobol_name": "ACCT-REISSUE-DATE",
+      "cobol_pic": "X(10)",
+      "pyspark_type": "StringType",
+      "byte_offset": 68,
+      "length": 10,
+      "description": "Card reissue date (YYYY-MM-DD format in data)"
+    },
+    {
+      "name": "ACCT_CURR_CYC_CREDIT",
+      "cobol_name": "ACCT-CURR-CYC-CREDIT",
+      "cobol_pic": "S9(10)V99",
+      "pyspark_type": "DecimalType(12,2)",
+      "byte_offset": 78,
+      "length": 12,
+      "description": "Current cycle credits – signed zoned-decimal with 2 implied decimals; last byte carries sign overpunch"
+    },
+    {
+      "name": "ACCT_CURR_CYC_DEBIT",
+      "cobol_name": "ACCT-CURR-CYC-DEBIT",
+      "cobol_pic": "S9(10)V99",
+      "pyspark_type": "DecimalType(12,2)",
+      "byte_offset": 90,
+      "length": 12,
+      "description": "Current cycle debits – signed zoned-decimal with 2 implied decimals; last byte carries sign overpunch"
+    },
+    {
+      "name": "ACCT_ADDR_ZIP",
+      "cobol_name": "ACCT-ADDR-ZIP",
+      "cobol_pic": "X(10)",
+      "pyspark_type": "StringType",
+      "byte_offset": 102,
+      "length": 10,
+      "description": "Account holder ZIP / postal code"
+    },
+    {
+      "name": "ACCT_GROUP_ID",
+      "cobol_name": "ACCT-GROUP-ID",
+      "cobol_pic": "X(10)",
+      "pyspark_type": "StringType",
+      "byte_offset": 112,
+      "length": 10,
+      "description": "Account group identifier"
+    },
+    {
+      "name": "FILLER",
+      "cobol_name": "FILLER",
+      "cobol_pic": "X(178)",
+      "pyspark_type": "StringType (dropped in output)",
+      "byte_offset": 122,
+      "length": 178,
+      "description": "Reserved filler bytes to pad record to 300 bytes; excluded from the parsed DataFrame"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "copybook": "CVACT02Y.cpy",
+  "record_name": "CARD-RECORD",
+  "record_length_bytes": 150,
+  "source_data_file": "app/data/ASCII/carddata.txt",
+  "fields": [
+    {
+      "name": "CARD_NUM",
+      "cobol_name": "CARD-NUM",
+      "cobol_pic": "X(16)",
+      "pyspark_type": "StringType",
+      "byte_offset": 0,
+      "length": 16,
+      "description": "Card number – kept as StringType to preserve leading zeros"
+    },
+    {
+      "name": "CARD_ACCT_ID",
+      "cobol_name": "CARD-ACCT-ID",
+      "cobol_pic": "9(11)",
+      "pyspark_type": "LongType",
+      "byte_offset": 16,
+      "length": 11,
+      "description": "Associated account identifier – unsigned 11-digit integer"
+    },
+    {
+      "name": "CARD_CVV_CD",
+      "cobol_name": "CARD-CVV-CD",
+      "cobol_pic": "9(03)",
+      "pyspark_type": "LongType",
+      "byte_offset": 27,
+      "length": 3,
+      "description": "Card CVV code – unsigned 3-digit integer"
+    },
+    {
+      "name": "CARD_EMBOSSED_NAME",
+      "cobol_name": "CARD-EMBOSSED-NAME",
+      "cobol_pic": "X(50)",
+      "pyspark_type": "StringType",
+      "byte_offset": 30,
+      "length": 50,
+      "description": "Name embossed on the card"
+    },
+    {
+      "name": "CARD_EXPIRAION_DATE",
+      "cobol_name": "CARD-EXPIRAION-DATE",
+      "cobol_pic": "X(10)",
+      "pyspark_type": "StringType",
+      "byte_offset": 80,
+      "length": 10,
+      "description": "Card expiration date (YYYY-MM-DD format in data); note: original copybook has typo 'EXPIRAION'"
+    },
+    {
+      "name": "CARD_ACTIVE_STATUS",
+      "cobol_name": "CARD-ACTIVE-STATUS",
+      "cobol_pic": "X(01)",
+      "pyspark_type": "StringType",
+      "byte_offset": 90,
+      "length": 1,
+      "description": "Active status flag (e.g. Y/N)"
+    },
+    {
+      "name": "FILLER",
+      "cobol_name": "FILLER",
+      "cobol_pic": "X(59)",
+      "pyspark_type": "StringType (dropped in output)",
+      "byte_offset": 91,
+      "length": 59,
+      "description": "Reserved filler bytes to pad record to 150 bytes; excluded from the parsed DataFrame"
+    }
+  ]
+}
