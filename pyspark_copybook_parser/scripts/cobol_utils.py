@@ -193,9 +193,12 @@ def parse_fixed_width_file(
             # Signed zoned decimal — decode via UDF (registered per-script)
             # We store the raw substring for now; UDF applied later
             result_df = result_df.withColumn(col_name, raw_col)
-        elif pyspark_type_str in ("LongType", "IntegerType"):
-            # Unsigned numeric display — cast directly
+        elif pyspark_type_str == "LongType":
+            # Unsigned numeric display — cast to long
             result_df = result_df.withColumn(col_name, raw_col.cast("long"))
+        elif pyspark_type_str == "IntegerType":
+            # Unsigned numeric display — cast to int
+            result_df = result_df.withColumn(col_name, raw_col.cast("int"))
         else:
             # Alphanumeric — trim trailing spaces
             result_df = result_df.withColumn(col_name, F.trim(raw_col))
