@@ -1,0 +1,79 @@
+================================================================================
+VALIDATION REPORT: carddata.txt (CVACT02Y.cpy / CARD-RECORD)
+================================================================================
+Copybook:           CVACT02Y.cpy
+Record layout:      CARD-RECORD (150 bytes)
+Data file:          app/data/ASCII/carddata.txt
+Raw line count:     50
+Parsed row count:   50
+Row count match:    PASS
+
+--------------------------------------------------------------------------------
+SCHEMA (non-FILLER fields):
+--------------------------------------------------------------------------------
+Field                          PIC                PySpark Type         Offset   Len  
+CARD_NUM                       PIC X(16)          StringType           0        16   
+CARD_ACCT_ID                   PIC 9(11)          LongType             16       11   
+CARD_CVV_CD                    PIC 9(03)          IntegerType          27       3    
+CARD_EMBOSSED_NAME             PIC X(50)          StringType           30       50   
+CARD_EXPIRAION_DATE            PIC X(10)          StringType           80       10   
+CARD_ACTIVE_STATUS             PIC X(01)          StringType           90       1    
+
+--------------------------------------------------------------------------------
+SAMPLE ROWS (first 5):
+--------------------------------------------------------------------------------
+
+--- Record 1 ---
+  CARD_NUM                       = 0500024453765740
+  CARD_ACCT_ID                   = 50
+  CARD_CVV_CD                    = 747
+  CARD_EMBOSSED_NAME             = Aniya Von
+  CARD_EXPIRAION_DATE            = 2023-03-09
+  CARD_ACTIVE_STATUS             = Y
+
+--- Record 2 ---
+  CARD_NUM                       = 0683586198171516
+  CARD_ACCT_ID                   = 27
+  CARD_CVV_CD                    = 567
+  CARD_EMBOSSED_NAME             = Ward Jones
+  CARD_EXPIRAION_DATE            = 2025-07-13
+  CARD_ACTIVE_STATUS             = Y
+
+--- Record 3 ---
+  CARD_NUM                       = 0923877193247330
+  CARD_ACCT_ID                   = 2
+  CARD_CVV_CD                    = 28
+  CARD_EMBOSSED_NAME             = Enrico Rosenbaum
+  CARD_EXPIRAION_DATE            = 2024-08-11
+  CARD_ACTIVE_STATUS             = Y
+
+--- Record 4 ---
+  CARD_NUM                       = 0927987108636232
+  CARD_ACCT_ID                   = 20
+  CARD_CVV_CD                    = 3
+  CARD_EMBOSSED_NAME             = Carter Veum
+  CARD_EXPIRAION_DATE            = 2024-03-13
+  CARD_ACTIVE_STATUS             = Y
+
+--- Record 5 ---
+  CARD_NUM                       = 0982496213629795
+  CARD_ACCT_ID                   = 12
+  CARD_CVV_CD                    = 75
+  CARD_EMBOSSED_NAME             = Maci Robel
+  CARD_EXPIRAION_DATE            = 2023-07-07
+  CARD_ACTIVE_STATUS             = Y
+
+--------------------------------------------------------------------------------
+COLUMN-LEVEL STATISTICS:
+--------------------------------------------------------------------------------
+Field                          Nulls      Distinct  
+CARD_NUM                       0          50        
+CARD_ACCT_ID                   0          50        
+CARD_CVV_CD                    0          50        
+CARD_EMBOSSED_NAME             0          50        
+CARD_EXPIRAION_DATE            0          50        
+CARD_ACTIVE_STATUS             0          1         
+
+================================================================================
+END OF VALIDATION REPORT
+================================================================================

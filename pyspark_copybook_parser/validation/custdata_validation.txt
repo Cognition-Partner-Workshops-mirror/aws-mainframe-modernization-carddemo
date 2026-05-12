@@ -1,0 +1,163 @@
+================================================================================
+VALIDATION REPORT: custdata.txt (CUSTREC.cpy / CUSTOMER-RECORD)
+================================================================================
+Copybook:           CUSTREC.cpy
+Record layout:      CUSTOMER-RECORD (500 bytes)
+Data file:          app/data/ASCII/custdata.txt
+Raw line count:     50
+Parsed row count:   50
+Row count match:    PASS
+
+--------------------------------------------------------------------------------
+SCHEMA (non-FILLER fields):
+--------------------------------------------------------------------------------
+Field                          PIC                PySpark Type         Offset   Len  
+CUST_ID                        PIC 9(09)          LongType             0        9    
+CUST_FIRST_NAME                PIC X(25)          StringType           9        25   
+CUST_MIDDLE_NAME               PIC X(25)          StringType           34       25   
+CUST_LAST_NAME                 PIC X(25)          StringType           59       25   
+CUST_ADDR_LINE_1               PIC X(50)          StringType           84       50   
+CUST_ADDR_LINE_2               PIC X(50)          StringType           134      50   
+CUST_ADDR_LINE_3               PIC X(50)          StringType           184      50   
+CUST_ADDR_STATE_CD             PIC X(02)          StringType           234      2    
+CUST_ADDR_COUNTRY_CD           PIC X(03)          StringType           236      3    
+CUST_ADDR_ZIP                  PIC X(10)          StringType           239      10   
+CUST_PHONE_NUM_1               PIC X(15)          StringType           249      15   
+CUST_PHONE_NUM_2               PIC X(15)          StringType           264      15   
+CUST_SSN                       PIC 9(09)          LongType             279      9    
+CUST_GOVT_ISSUED_ID            PIC X(20)          StringType           288      20   
+CUST_DOB_YYYYMMDD              PIC X(10)          StringType           308      10   
+CUST_EFT_ACCOUNT_ID            PIC X(10)          StringType           318      10   
+CUST_PRI_CARD_HOLDER_IND       PIC X(01)          StringType           328      1    
+CUST_FICO_CREDIT_SCORE         PIC 9(03)          IntegerType          329      3    
+
+--------------------------------------------------------------------------------
+SAMPLE ROWS (first 5):
+--------------------------------------------------------------------------------
+
+--- Record 1 ---
+  CUST_ID                        = 1
+  CUST_FIRST_NAME                = Immanuel
+  CUST_MIDDLE_NAME               = Madeline
+  CUST_LAST_NAME                 = Kessler
+  CUST_ADDR_LINE_1               = 618 Deshaun Route
+  CUST_ADDR_LINE_2               = Apt. 802
+  CUST_ADDR_LINE_3               = Altenwerthshire
+  CUST_ADDR_STATE_CD             = NC
+  CUST_ADDR_COUNTRY_CD           = USA
+  CUST_ADDR_ZIP                  = 12546
+  CUST_PHONE_NUM_1               = (908)119-8310
+  CUST_PHONE_NUM_2               = (373)693-8684
+  CUST_SSN                       = 20973888
+  CUST_GOVT_ISSUED_ID            = 00000000000049368437
+  CUST_DOB_YYYYMMDD              = 1961-06-08
+  CUST_EFT_ACCOUNT_ID            = 0053581756
+  CUST_PRI_CARD_HOLDER_IND       = Y
+  CUST_FICO_CREDIT_SCORE         = 274
+
+--- Record 2 ---
+  CUST_ID                        = 2
+  CUST_FIRST_NAME                = Enrico
+  CUST_MIDDLE_NAME               = April
+  CUST_LAST_NAME                 = Rosenbaum
+  CUST_ADDR_LINE_1               = 4917 Myrna Flats
+  CUST_ADDR_LINE_2               = Apt. 453
+  CUST_ADDR_LINE_3               = West Bernita
+  CUST_ADDR_STATE_CD             = IN
+  CUST_ADDR_COUNTRY_CD           = USA
+  CUST_ADDR_ZIP                  = 22770
+  CUST_PHONE_NUM_1               = (429)706-9510
+  CUST_PHONE_NUM_2               = (744)950-5272
+  CUST_SSN                       = 587518382
+  CUST_GOVT_ISSUED_ID            = 00000000000506210371
+  CUST_DOB_YYYYMMDD              = 1961-10-08
+  CUST_EFT_ACCOUNT_ID            = 0069194009
+  CUST_PRI_CARD_HOLDER_IND       = Y
+  CUST_FICO_CREDIT_SCORE         = 268
+
+--- Record 3 ---
+  CUST_ID                        = 3
+  CUST_FIRST_NAME                = Larry
+  CUST_MIDDLE_NAME               = Cody
+  CUST_LAST_NAME                 = Homenick
+  CUST_ADDR_LINE_1               = 362 Esta Parks
+  CUST_ADDR_LINE_2               = Apt. 390
+  CUST_ADDR_LINE_3               = New Gladys
+  CUST_ADDR_STATE_CD             = GA
+  CUST_ADDR_COUNTRY_CD           = USA
+  CUST_ADDR_ZIP                  = 19852-6716
+  CUST_PHONE_NUM_1               = (950)396-9024
+  CUST_PHONE_NUM_2               = (685)168-8826
+  CUST_SSN                       = 317460867
+  CUST_GOVT_ISSUED_ID            = 00000000000052419303
+  CUST_DOB_YYYYMMDD              = 1987-11-30
+  CUST_EFT_ACCOUNT_ID            = 0006465789
+  CUST_PRI_CARD_HOLDER_IND       = Y
+  CUST_FICO_CREDIT_SCORE         = 616
+
+--- Record 4 ---
+  CUST_ID                        = 4
+  CUST_FIRST_NAME                = Delbert
+  CUST_MIDDLE_NAME               = Kaia
+  CUST_LAST_NAME                 = Parisian
+  CUST_ADDR_LINE_1               = 638 Blanda Gateway
+  CUST_ADDR_LINE_2               = Apt. 076
+  CUST_ADDR_LINE_3               = Lake Virginie
+  CUST_ADDR_STATE_CD             = MI
+  CUST_ADDR_COUNTRY_CD           = USA
+  CUST_ADDR_ZIP                  = 39035-0455
+  CUST_PHONE_NUM_1               = (801)603-4121
+  CUST_PHONE_NUM_2               = (156)074-6837
+  CUST_SSN                       = 660354258
+  CUST_GOVT_ISSUED_ID            = 00000000000068579249
+  CUST_DOB_YYYYMMDD              = 1985-01-13
+  CUST_EFT_ACCOUNT_ID            = 0040802739
+  CUST_PRI_CARD_HOLDER_IND       = Y
+  CUST_FICO_CREDIT_SCORE         = 776
+
+--- Record 5 ---
+  CUST_ID                        = 5
+  CUST_FIRST_NAME                = Treva
+  CUST_MIDDLE_NAME               = Manley
+  CUST_LAST_NAME                 = Schowalter
+  CUST_ADDR_LINE_1               = 5653 Legros Plaza
+  CUST_ADDR_LINE_2               = Apt. 968
+  CUST_ADDR_LINE_3               = Alvinaport
+  CUST_ADDR_STATE_CD             = MI
+  CUST_ADDR_COUNTRY_CD           = USA
+  CUST_ADDR_ZIP                  = 02251-1698
+  CUST_PHONE_NUM_1               = (978)775-4633
+  CUST_PHONE_NUM_2               = (439)943-7644
+  CUST_SSN                       = 611264288
+  CUST_GOVT_ISSUED_ID            = 00000000000639799754
+  CUST_DOB_YYYYMMDD              = 1971-09-29
+  CUST_EFT_ACCOUNT_ID            = 0006365573
+  CUST_PRI_CARD_HOLDER_IND       = Y
+  CUST_FICO_CREDIT_SCORE         = 529
+
+--------------------------------------------------------------------------------
+COLUMN-LEVEL STATISTICS:
+--------------------------------------------------------------------------------
+Field                          Nulls      Distinct  
+CUST_ID                        0          50        
+CUST_FIRST_NAME                0          49        
+CUST_MIDDLE_NAME               0          50        
+CUST_LAST_NAME                 0          48        
+CUST_ADDR_LINE_1               0          50        
+CUST_ADDR_LINE_2               0          49        
+CUST_ADDR_LINE_3               0          50        
+CUST_ADDR_STATE_CD             0          36        
+CUST_ADDR_COUNTRY_CD           0          1         
+CUST_ADDR_ZIP                  0          50        
+CUST_PHONE_NUM_1               0          50        
+CUST_PHONE_NUM_2               0          50        
+CUST_SSN                       0          50        
+CUST_GOVT_ISSUED_ID            0          50        
+CUST_DOB_YYYYMMDD              0          50        
+CUST_EFT_ACCOUNT_ID            0          50        
+CUST_PRI_CARD_HOLDER_IND       0          1         
+CUST_FICO_CREDIT_SCORE         0          50        
+
+================================================================================
+END OF VALIDATION REPORT
+================================================================================
