@@ -1,0 +1,138 @@
+{
+  "copybook": "CVACT01Y.cpy",
+  "record_name": "ACCOUNT-RECORD",
+  "record_length": 300,
+  "description": "Data-structure for account entity (RECLN 300)",
+  "fields": [
+    {
+      "name": "ACCT_ID",
+      "cobol_name": "ACCT-ID",
+      "pic_clause": "PIC 9(11)",
+      "cobol_type": "zoned_decimal_unsigned",
+      "pyspark_type": "StringType",
+      "byte_offset": 0,
+      "length": 11,
+      "notes": "Account identifier. Mapped to StringType to preserve leading zeros."
+    },
+    {
+      "name": "ACCT_ACTIVE_STATUS",
+      "cobol_name": "ACCT-ACTIVE-STATUS",
+      "pic_clause": "PIC X(01)",
+      "cobol_type": "alphanumeric",
+      "pyspark_type": "StringType",
+      "byte_offset": 11,
+      "length": 1,
+      "notes": "Active status flag (e.g., 'Y' or 'N')."
+    },
+    {
+      "name": "ACCT_CURR_BAL",
+      "cobol_name": "ACCT-CURR-BAL",
+      "pic_clause": "PIC S9(10)V99",
+      "cobol_type": "signed_zoned_decimal_with_implied_decimal",
+      "pyspark_type": "DecimalType(12,2)",
+      "byte_offset": 12,
+      "length": 12,
+      "notes": "Current balance. Sign stored as overpunch on last byte. Implied decimal V99 means last 2 digits are fractional."
+    },
+    {
+      "name": "ACCT_CREDIT_LIMIT",
+      "cobol_name": "ACCT-CREDIT-LIMIT",
+      "pic_clause": "PIC S9(10)V99",
+      "cobol_type": "signed_zoned_decimal_with_implied_decimal",
+      "pyspark_type": "DecimalType(12,2)",
+      "byte_offset": 24,
+      "length": 12,
+      "notes": "Credit limit. Sign stored as overpunch on last byte. Implied decimal V99 means last 2 digits are fractional."
+    },
+    {
+      "name": "ACCT_CASH_CREDIT_LIMIT",
+      "cobol_name": "ACCT-CASH-CREDIT-LIMIT",
+      "pic_clause": "PIC S9(10)V99",
+      "cobol_type": "signed_zoned_decimal_with_implied_decimal",
+      "pyspark_type": "DecimalType(12,2)",
+      "byte_offset": 36,
+      "length": 12,
+      "notes": "Cash credit limit. Sign stored as overpunch on last byte. Implied decimal V99 means last 2 digits are fractional."
+    },
+    {
+      "name": "ACCT_OPEN_DATE",
+      "cobol_name": "ACCT-OPEN-DATE",
+      "pic_clause": "PIC X(10)",
+      "cobol_type": "alphanumeric",
+      "pyspark_type": "StringType",
+      "byte_offset": 48,
+      "length": 10,
+      "notes": "Account open date in YYYY-MM-DD format."
+    },
+    {
+      "name": "ACCT_EXPIRAION_DATE",
+      "cobol_name": "ACCT-EXPIRAION-DATE",
+      "pic_clause": "PIC X(10)",
+      "cobol_type": "alphanumeric",
+      "pyspark_type": "StringType",
+      "byte_offset": 58,
+      "length": 10,
+      "notes": "Account expiration date in YYYY-MM-DD format. Note: original copybook has typo 'EXPIRAION'."
+    },
+    {
+      "name": "ACCT_REISSUE_DATE",
+      "cobol_name": "ACCT-REISSUE-DATE",
+      "pic_clause": "PIC X(10)",
+      "cobol_type": "alphanumeric",
+      "pyspark_type": "StringType",
+      "byte_offset": 68,
+      "length": 10,
+      "notes": "Account reissue date in YYYY-MM-DD format."
+    },
+    {
+      "name": "ACCT_CURR_CYC_CREDIT",
+      "cobol_name": "ACCT-CURR-CYC-CREDIT",
+      "pic_clause": "PIC S9(10)V99",
+      "cobol_type": "signed_zoned_decimal_with_implied_decimal",
+      "pyspark_type": "DecimalType(12,2)",
+      "byte_offset": 78,
+      "length": 12,
+      "notes": "Current cycle credit amount. Sign stored as overpunch on last byte."
+    },
+    {
+      "name": "ACCT_CURR_CYC_DEBIT",
+      "cobol_name": "ACCT-CURR-CYC-DEBIT",
+      "pic_clause": "PIC S9(10)V99",
+      "cobol_type": "signed_zoned_decimal_with_implied_decimal",
+      "pyspark_type": "DecimalType(12,2)",
+      "byte_offset": 90,
+      "length": 12,
+      "notes": "Current cycle debit amount. Sign stored as overpunch on last byte."
+    },
+    {
+      "name": "ACCT_ADDR_ZIP",
+      "cobol_name": "ACCT-ADDR-ZIP",
+      "pic_clause": "PIC X(10)",
+      "cobol_type": "alphanumeric",
+      "pyspark_type": "StringType",
+      "byte_offset": 102,
+      "length": 10,
+      "notes": "Account address ZIP code."
+    },
+    {
+      "name": "ACCT_GROUP_ID",
+      "cobol_name": "ACCT-GROUP-ID",
+      "pic_clause": "PIC X(10)",
+      "cobol_type": "alphanumeric",
+      "pyspark_type": "StringType",
+      "byte_offset": 112,
+      "length": 10,
+      "notes": "Account group identifier."
+    },
+    {
+      "name": "FILLER",
+      "cobol_name": "FILLER",
+      "pic_clause": "PIC X(178)",
+      "cobol_type": "alphanumeric",
+      "pyspark_type": "StringType",
+      "byte_offset": 122,
+      "length": 178,
+      "notes": "Reserved filler space. Excluded from PySpark DataFrame by default."
+    }
+  ]
+}

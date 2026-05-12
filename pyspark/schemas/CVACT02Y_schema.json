@@ -1,0 +1,78 @@
+{
+  "copybook": "CVACT02Y.cpy",
+  "record_name": "CARD-RECORD",
+  "record_length": 150,
+  "description": "Data-structure for card entity (RECLN 150)",
+  "fields": [
+    {
+      "name": "CARD_NUM",
+      "cobol_name": "CARD-NUM",
+      "pic_clause": "PIC X(16)",
+      "cobol_type": "alphanumeric",
+      "pyspark_type": "StringType",
+      "byte_offset": 0,
+      "length": 16,
+      "notes": "Card number (16-digit string)."
+    },
+    {
+      "name": "CARD_ACCT_ID",
+      "cobol_name": "CARD-ACCT-ID",
+      "pic_clause": "PIC 9(11)",
+      "cobol_type": "zoned_decimal_unsigned",
+      "pyspark_type": "StringType",
+      "byte_offset": 16,
+      "length": 11,
+      "notes": "Associated account identifier. Mapped to StringType to preserve leading zeros."
+    },
+    {
+      "name": "CARD_CVV_CD",
+      "cobol_name": "CARD-CVV-CD",
+      "pic_clause": "PIC 9(03)",
+      "cobol_type": "zoned_decimal_unsigned",
+      "pyspark_type": "StringType",
+      "byte_offset": 27,
+      "length": 3,
+      "notes": "Card CVV code. Mapped to StringType to preserve leading zeros."
+    },
+    {
+      "name": "CARD_EMBOSSED_NAME",
+      "cobol_name": "CARD-EMBOSSED-NAME",
+      "pic_clause": "PIC X(50)",
+      "cobol_type": "alphanumeric",
+      "pyspark_type": "StringType",
+      "byte_offset": 30,
+      "length": 50,
+      "notes": "Name embossed on the card, right-padded with spaces."
+    },
+    {
+      "name": "CARD_EXPIRAION_DATE",
+      "cobol_name": "CARD-EXPIRAION-DATE",
+      "pic_clause": "PIC X(10)",
+      "cobol_type": "alphanumeric",
+      "pyspark_type": "StringType",
+      "byte_offset": 80,
+      "length": 10,
+      "notes": "Card expiration date in YYYY-MM-DD format. Note: original copybook has typo 'EXPIRAION'."
+    },
+    {
+      "name": "CARD_ACTIVE_STATUS",
+      "cobol_name": "CARD-ACTIVE-STATUS",
+      "pic_clause": "PIC X(01)",
+      "cobol_type": "alphanumeric",
+      "pyspark_type": "StringType",
+      "byte_offset": 90,
+      "length": 1,
+      "notes": "Card active status flag ('Y' or 'N')."
+    },
+    {
+      "name": "FILLER",
+      "cobol_name": "FILLER",
+      "pic_clause": "PIC X(59)",
+      "cobol_type": "alphanumeric",
+      "pyspark_type": "StringType",
+      "byte_offset": 91,
+      "length": 59,
+      "notes": "Reserved filler space. Excluded from PySpark DataFrame by default."
+    }
+  ]
+}

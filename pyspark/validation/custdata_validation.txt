@@ -1,0 +1,83 @@
+Parsing: /home/ubuntu/repos/aws-mainframe-modernization-carddemo/app/data/ASCII/custdata.txt
+======================================================================
+VALIDATION REPORT: custdata.txt (CUSTREC.cpy — CUSTOMER-RECORD)
+======================================================================
+Raw file row count:    50
+Parsed DataFrame rows: 50
+Row count match:       True
+
+Parsed DataFrame Schema:
+root
+ |-- CUST_ID: string (nullable = true)
+ |-- CUST_FIRST_NAME: string (nullable = true)
+ |-- CUST_MIDDLE_NAME: string (nullable = true)
+ |-- CUST_LAST_NAME: string (nullable = true)
+ |-- CUST_ADDR_LINE_1: string (nullable = true)
+ |-- CUST_ADDR_LINE_2: string (nullable = true)
+ |-- CUST_ADDR_LINE_3: string (nullable = true)
+ |-- CUST_ADDR_STATE_CD: string (nullable = true)
+ |-- CUST_ADDR_COUNTRY_CD: string (nullable = true)
+ |-- CUST_ADDR_ZIP: string (nullable = true)
+ |-- CUST_PHONE_NUM_1: string (nullable = true)
+ |-- CUST_PHONE_NUM_2: string (nullable = true)
+ |-- CUST_SSN: string (nullable = true)
+ |-- CUST_GOVT_ISSUED_ID: string (nullable = true)
+ |-- CUST_DOB_YYYYMMDD: string (nullable = true)
+ |-- CUST_EFT_ACCOUNT_ID: string (nullable = true)
+ |-- CUST_PRI_CARD_HOLDER_IND: string (nullable = true)
+ |-- CUST_FICO_CREDIT_SCORE: integer (nullable = true)
+
+Sample Rows — Key Columns (first 5):
++---------+---------------+--------------+------------------+-------------+---------+-----------------+----------------------+
+|CUST_ID  |CUST_FIRST_NAME|CUST_LAST_NAME|CUST_ADDR_STATE_CD|CUST_ADDR_ZIP|CUST_SSN |CUST_DOB_YYYYMMDD|CUST_FICO_CREDIT_SCORE|
++---------+---------------+--------------+------------------+-------------+---------+-----------------+----------------------+
+|000000001|Immanuel       |Kessler       |NC                |12546        |020973888|1961-06-08       |274                   |
+|000000002|Enrico         |Rosenbaum     |IN                |22770        |587518382|1961-10-08       |268                   |
+|000000003|Larry          |Homenick      |GA                |19852-6716   |317460867|1987-11-30       |616                   |
+|000000004|Delbert        |Parisian      |MI                |39035-0455   |660354258|1985-01-13       |776                   |
+|000000005|Treva          |Schowalter    |MI                |02251-1698   |611264288|1971-09-29       |529                   |
++---------+---------------+--------------+------------------+-------------+---------+-----------------+----------------------+
+only showing top 5 rows
+Distinct CUST_ADDR_STATE_CD values:
++------------------+-----+
+|CUST_ADDR_STATE_CD|count|
++------------------+-----+
+|                OR|    3|
+|                RI|    2|
+|                NH|    2|
+|                MI|    2|
+|                NV|    2|
+|                VT|    2|
+|                VI|    2|
+|                GU|    2|
+|                AL|    2|
+|                FM|    2|
++------------------+-----+
+only showing top 10 rows
+FICO Credit Score Statistics:
++--------+--------+--------+
+|min_fico|max_fico|avg_fico|
++--------+--------+--------+
+|       1|     793|  399.02|
++--------+--------+--------+
+
+First Record Field Values:
+  CUST_ID                        = 000000001
+  CUST_FIRST_NAME                = Immanuel
+  CUST_MIDDLE_NAME               = Madeline
+  CUST_LAST_NAME                 = Kessler
+  CUST_ADDR_LINE_1               = 618 Deshaun Route
+  CUST_ADDR_LINE_2               = Apt. 802
+  CUST_ADDR_LINE_3               = Altenwerthshire
+  CUST_ADDR_STATE_CD             = NC
+  CUST_ADDR_COUNTRY_CD           = USA
+  CUST_ADDR_ZIP                  = 12546
+  CUST_PHONE_NUM_1               = (908)119-8310
+  CUST_PHONE_NUM_2               = (373)693-8684
+  CUST_SSN                       = 020973888
+  CUST_GOVT_ISSUED_ID            = 00000000000049368437
+  CUST_DOB_YYYYMMDD              = 1961-06-08
+  CUST_EFT_ACCOUNT_ID            = 0053581756
+  CUST_PRI_CARD_HOLDER_IND       = Y
+  CUST_FICO_CREDIT_SCORE         = 274
+======================================================================
