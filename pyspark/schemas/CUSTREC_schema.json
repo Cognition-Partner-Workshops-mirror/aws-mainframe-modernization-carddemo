@@ -1,0 +1,198 @@
+{
+  "copybook": "CUSTREC.cpy",
+  "record_name": "CUSTOMER-RECORD",
+  "record_length": 500,
+  "description": "Data-structure for Customer entity (RECLN 500)",
+  "fields": [
+    {
+      "name": "CUST_ID",
+      "cobol_name": "CUST-ID",
+      "pic_clause": "PIC 9(09)",
+      "cobol_type": "zoned_decimal_unsigned",
+      "pyspark_type": "StringType",
+      "byte_offset": 0,
+      "length": 9,
+      "notes": "Customer identifier. Mapped to StringType to preserve leading zeros."
+    },
+    {
+      "name": "CUST_FIRST_NAME",
+      "cobol_name": "CUST-FIRST-NAME",
+      "pic_clause": "PIC X(25)",
+      "cobol_type": "alphanumeric",
+      "pyspark_type": "StringType",
+      "byte_offset": 9,
+      "length": 25,
+      "notes": "Customer first name, right-padded with spaces."
+    },
+    {
+      "name": "CUST_MIDDLE_NAME",
+      "cobol_name": "CUST-MIDDLE-NAME",
+      "pic_clause": "PIC X(25)",
+      "cobol_type": "alphanumeric",
+      "pyspark_type": "StringType",
+      "byte_offset": 34,
+      "length": 25,
+      "notes": "Customer middle name, right-padded with spaces."
+    },
+    {
+      "name": "CUST_LAST_NAME",
+      "cobol_name": "CUST-LAST-NAME",
+      "pic_clause": "PIC X(25)",
+      "cobol_type": "alphanumeric",
+      "pyspark_type": "StringType",
+      "byte_offset": 59,
+      "length": 25,
+      "notes": "Customer last name, right-padded with spaces."
+    },
+    {
+      "name": "CUST_ADDR_LINE_1",
+      "cobol_name": "CUST-ADDR-LINE-1",
+      "pic_clause": "PIC X(50)",
+      "cobol_type": "alphanumeric",
+      "pyspark_type": "StringType",
+      "byte_offset": 84,
+      "length": 50,
+      "notes": "Address line 1, right-padded with spaces."
+    },
+    {
+      "name": "CUST_ADDR_LINE_2",
+      "cobol_name": "CUST-ADDR-LINE-2",
+      "pic_clause": "PIC X(50)",
+      "cobol_type": "alphanumeric",
+      "pyspark_type": "StringType",
+      "byte_offset": 134,
+      "length": 50,
+      "notes": "Address line 2, right-padded with spaces."
+    },
+    {
+      "name": "CUST_ADDR_LINE_3",
+      "cobol_name": "CUST-ADDR-LINE-3",
+      "pic_clause": "PIC X(50)",
+      "cobol_type": "alphanumeric",
+      "pyspark_type": "StringType",
+      "byte_offset": 184,
+      "length": 50,
+      "notes": "Address line 3 (city/locality), right-padded with spaces."
+    },
+    {
+      "name": "CUST_ADDR_STATE_CD",
+      "cobol_name": "CUST-ADDR-STATE-CD",
+      "pic_clause": "PIC X(02)",
+      "cobol_type": "alphanumeric",
+      "pyspark_type": "StringType",
+      "byte_offset": 234,
+      "length": 2,
+      "notes": "US state code (e.g., 'NC', 'IN')."
+    },
+    {
+      "name": "CUST_ADDR_COUNTRY_CD",
+      "cobol_name": "CUST-ADDR-COUNTRY-CD",
+      "pic_clause": "PIC X(03)",
+      "cobol_type": "alphanumeric",
+      "pyspark_type": "StringType",
+      "byte_offset": 236,
+      "length": 3,
+      "notes": "Country code (e.g., 'USA')."
+    },
+    {
+      "name": "CUST_ADDR_ZIP",
+      "cobol_name": "CUST-ADDR-ZIP",
+      "pic_clause": "PIC X(10)",
+      "cobol_type": "alphanumeric",
+      "pyspark_type": "StringType",
+      "byte_offset": 239,
+      "length": 10,
+      "notes": "ZIP code, right-padded with spaces."
+    },
+    {
+      "name": "CUST_PHONE_NUM_1",
+      "cobol_name": "CUST-PHONE-NUM-1",
+      "pic_clause": "PIC X(15)",
+      "cobol_type": "alphanumeric",
+      "pyspark_type": "StringType",
+      "byte_offset": 249,
+      "length": 15,
+      "notes": "Primary phone number."
+    },
+    {
+      "name": "CUST_PHONE_NUM_2",
+      "cobol_name": "CUST-PHONE-NUM-2",
+      "pic_clause": "PIC X(15)",
+      "cobol_type": "alphanumeric",
+      "pyspark_type": "StringType",
+      "byte_offset": 264,
+      "length": 15,
+      "notes": "Secondary phone number."
+    },
+    {
+      "name": "CUST_SSN",
+      "cobol_name": "CUST-SSN",
+      "pic_clause": "PIC 9(09)",
+      "cobol_type": "zoned_decimal_unsigned",
+      "pyspark_type": "StringType",
+      "byte_offset": 279,
+      "length": 9,
+      "notes": "Social Security Number. Mapped to StringType to preserve leading zeros."
+    },
+    {
+      "name": "CUST_GOVT_ISSUED_ID",
+      "cobol_name": "CUST-GOVT-ISSUED-ID",
+      "pic_clause": "PIC X(20)",
+      "cobol_type": "alphanumeric",
+      "pyspark_type": "StringType",
+      "byte_offset": 288,
+      "length": 20,
+      "notes": "Government-issued ID number."
+    },
+    {
+      "name": "CUST_DOB_YYYYMMDD",
+      "cobol_name": "CUST-DOB-YYYYMMDD",
+      "pic_clause": "PIC X(10)",
+      "cobol_type": "alphanumeric",
+      "pyspark_type": "StringType",
+      "byte_offset": 308,
+      "length": 10,
+      "notes": "Date of birth in YYYY-MM-DD format."
+    },
+    {
+      "name": "CUST_EFT_ACCOUNT_ID",
+      "cobol_name": "CUST-EFT-ACCOUNT-ID",
+      "pic_clause": "PIC X(10)",
+      "cobol_type": "alphanumeric",
+      "pyspark_type": "StringType",
+      "byte_offset": 318,
+      "length": 10,
+      "notes": "EFT (Electronic Fund Transfer) account identifier."
+    },
+    {
+      "name": "CUST_PRI_CARD_HOLDER_IND",
+      "cobol_name": "CUST-PRI-CARD-HOLDER-IND",
+      "pic_clause": "PIC X(01)",
+      "cobol_type": "alphanumeric",
+      "pyspark_type": "StringType",
+      "byte_offset": 328,
+      "length": 1,
+      "notes": "Primary card holder indicator ('Y' or 'N')."
+    },
+    {
+      "name": "CUST_FICO_CREDIT_SCORE",
+      "cobol_name": "CUST-FICO-CREDIT-SCORE",
+      "pic_clause": "PIC 9(03)",
+      "cobol_type": "zoned_decimal_unsigned",
+      "pyspark_type": "IntegerType",
+      "byte_offset": 329,
+      "length": 3,
+      "notes": "FICO credit score (numeric value 300-850 range). Mapped to IntegerType as no leading zeros needed."
+    },
+    {
+      "name": "FILLER",
+      "cobol_name": "FILLER",
+      "pic_clause": "PIC X(168)",
+      "cobol_type": "alphanumeric",
+      "pyspark_type": "StringType",
+      "byte_offset": 332,
+      "length": 168,
+      "notes": "Reserved filler space. Excluded from PySpark DataFrame by default."
+    }
+  ]
+}
