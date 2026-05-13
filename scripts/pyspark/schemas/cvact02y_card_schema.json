@@ -1,0 +1,64 @@
+{
+  "copybook": "CVACT02Y.cpy",
+  "record_name": "CARD-RECORD",
+  "record_length": 150,
+  "source_file": "app/data/ASCII/carddata.txt",
+  "fields": [
+    {
+      "name": "CARD-NUM",
+      "cobol_pic": "PIC X(16)",
+      "pyspark_type": "StringType",
+      "byte_offset": 0,
+      "length": 16,
+      "description": "Card number (kept as string to preserve leading zeros)"
+    },
+    {
+      "name": "CARD-ACCT-ID",
+      "cobol_pic": "PIC 9(11)",
+      "pyspark_type": "LongType",
+      "byte_offset": 16,
+      "length": 11,
+      "description": "Associated account identifier, unsigned 11-digit numeric display"
+    },
+    {
+      "name": "CARD-CVV-CD",
+      "cobol_pic": "PIC 9(03)",
+      "pyspark_type": "IntegerType",
+      "byte_offset": 27,
+      "length": 3,
+      "description": "Card CVV code, 3-digit unsigned numeric display"
+    },
+    {
+      "name": "CARD-EMBOSSED-NAME",
+      "cobol_pic": "PIC X(50)",
+      "pyspark_type": "StringType",
+      "byte_offset": 30,
+      "length": 50,
+      "description": "Name embossed on the card"
+    },
+    {
+      "name": "CARD-EXPIRAION-DATE",
+      "cobol_pic": "PIC X(10)",
+      "pyspark_type": "StringType",
+      "byte_offset": 80,
+      "length": 10,
+      "description": "Card expiration date (format: YYYY-MM-DD). Note: original copybook has typo 'EXPIRAION'"
+    },
+    {
+      "name": "CARD-ACTIVE-STATUS",
+      "cobol_pic": "PIC X(01)",
+      "pyspark_type": "StringType",
+      "byte_offset": 90,
+      "length": 1,
+      "description": "Card active status flag (e.g. Y/N)"
+    },
+    {
+      "name": "FILLER",
+      "cobol_pic": "PIC X(59)",
+      "pyspark_type": "StringType",
+      "byte_offset": 91,
+      "length": 59,
+      "description": "Reserved filler space to pad record to 150 bytes"
+    }
+  ]
+}
