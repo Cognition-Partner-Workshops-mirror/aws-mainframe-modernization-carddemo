@@ -1,0 +1,107 @@
+COPYBOOK PARSING VALIDATION REPORT
+================================================================================
+Project root: /home/ubuntu/repos/aws-mainframe-modernization-carddemo
+
+================================================================================
+VALIDATION: ACCOUNT-RECORD (CVACT01Y.cpy -> acctdata.txt)
+================================================================================
+
+[RAW FILE]
+  File: /home/ubuntu/repos/aws-mainframe-modernization-carddemo/app/data/ASCII/acctdata.txt
+  Raw line count: 50
+  First line length: 300 bytes (expected: 300)
+  Length check: PASS
+
+[PYSPARK PARSED]
+  DataFrame row count: 50
+  Row count match: PASS
+
+[SAMPLE VALUES - First Record]
+  ACCT_ID: 1 (expected: 1)
+  ACCT_ACTIVE_STATUS: 'Y' (expected: 'Y')
+  ACCT_CURR_BAL: 194.00 (expected: 194.00)
+  ACCT_CREDIT_LIMIT: 2020.00 (expected: 2020.00)
+  ACCT_OPEN_DATE: '2014-11-20' (expected: '2014-11-20')
+
+[ASSERTIONS]
+  PASS: Row count
+  PASS: ACCT_ID = 1
+  PASS: ACCT_ACTIVE_STATUS = 'Y'
+  PASS: ACCT_CURR_BAL = 194.00
+  PASS: ACCT_CREDIT_LIMIT = 2020.00
+  PASS: ACCT_OPEN_DATE = '2014-11-20'
+
+  OVERALL: ALL PASSED
+
+================================================================================
+VALIDATION: CUSTOMER-RECORD (CUSTREC.cpy -> custdata.txt)
+================================================================================
+
+[RAW FILE]
+  File: /home/ubuntu/repos/aws-mainframe-modernization-carddemo/app/data/ASCII/custdata.txt
+  Raw line count: 50
+  First line length: 500 bytes (expected: 500)
+  Length check: PASS
+
+[PYSPARK PARSED]
+  DataFrame row count: 50
+  Row count match: PASS
+
+[SAMPLE VALUES - First Record]
+  CUST_ID: 1 (expected: 1)
+  CUST_FIRST_NAME: 'Immanuel' (expected: 'Immanuel')
+  CUST_LAST_NAME: 'Kessler' (expected: 'Kessler')
+  CUST_ADDR_STATE_CD: 'NC' (expected: 'NC')
+  CUST_FICO_CREDIT_SCORE: 274 (expected: 274)
+
+[ASSERTIONS]
+  PASS: Row count
+  PASS: CUST_ID = 1
+  PASS: CUST_FIRST_NAME = 'Immanuel'
+  PASS: CUST_LAST_NAME = 'Kessler'
+  PASS: CUST_ADDR_STATE_CD = 'NC'
+  PASS: CUST_FICO_CREDIT_SCORE = 274
+
+  OVERALL: ALL PASSED
+
+================================================================================
+VALIDATION: CARD-RECORD (CVACT02Y.cpy -> carddata.txt)
+================================================================================
+
+[RAW FILE]
+  File: /home/ubuntu/repos/aws-mainframe-modernization-carddemo/app/data/ASCII/carddata.txt
+  Raw line count: 50
+  First line length: 150 bytes (expected: 150)
+  Length check: PASS
+
+[PYSPARK PARSED]
+  DataFrame row count: 50
+  Row count match: PASS
+
+[SAMPLE VALUES - First Record]
+  CARD_NUM: '0500024453765740' (expected: '0500024453765740')
+  CARD_ACCT_ID: 50 (expected: 50)
+  CARD_CVV_CD: 747 (expected: 747)
+  CARD_EMBOSSED_NAME: 'Aniya Von' (expected: 'Aniya Von')
+  CARD_EXPIRAION_DATE: '2023-03-09' (expected: '2023-03-09')
+  CARD_ACTIVE_STATUS: 'Y' (expected: 'Y')
+
+[ASSERTIONS]
+  PASS: Row count
+  PASS: CARD_NUM = '0500024453765740'
+  PASS: CARD_ACCT_ID = 50
+  PASS: CARD_CVV_CD = 747
+  PASS: CARD_EMBOSSED_NAME = 'Aniya Von'
+  PASS: CARD_EXPIRAION_DATE = '2023-03-09'
+  PASS: CARD_ACTIVE_STATUS = 'Y'
+
+  OVERALL: ALL PASSED
+
+================================================================================
+SUMMARY
+================================================================================
+  ACCOUNT-RECORD (CVACT01Y.cpy): PASS
+  CUSTOMER-RECORD (CUSTREC.cpy):  PASS
+  CARD-RECORD (CVACT02Y.cpy):     PASS
+
+  OVERALL RESULT: ALL VALIDATIONS PASSED
