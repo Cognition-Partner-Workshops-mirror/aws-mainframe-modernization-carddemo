@@ -1,0 +1,121 @@
+================================================================================
+VALIDATION REPORT: acctdata.txt (CVACT01Y.cpy / ACCOUNT-RECORD)
+================================================================================
+Copybook:           CVACT01Y.cpy
+Record layout:      ACCOUNT-RECORD (300 bytes)
+Data file:          app/data/ASCII/acctdata.txt
+Raw line count:     50
+Parsed row count:   50
+Row count match:    PASS
+
+--------------------------------------------------------------------------------
+SCHEMA (non-FILLER fields):
+--------------------------------------------------------------------------------
+Field                          PIC                PySpark Type         Offset   Len  
+ACCT_ID                        PIC 9(11)          LongType             0        11   
+ACCT_ACTIVE_STATUS             PIC X(01)          StringType           11       1    
+ACCT_CURR_BAL                  PIC S9(10)V99      DecimalType(12,2)    12       12   
+ACCT_CREDIT_LIMIT              PIC S9(10)V99      DecimalType(12,2)    24       12   
+ACCT_CASH_CREDIT_LIMIT         PIC S9(10)V99      DecimalType(12,2)    36       12   
+ACCT_OPEN_DATE                 PIC X(10)          StringType           48       10   
+ACCT_EXPIRAION_DATE            PIC X(10)          StringType           58       10   
+ACCT_REISSUE_DATE              PIC X(10)          StringType           68       10   
+ACCT_CURR_CYC_CREDIT           PIC S9(10)V99      DecimalType(12,2)    78       12   
+ACCT_CURR_CYC_DEBIT            PIC S9(10)V99      DecimalType(12,2)    90       12   
+ACCT_ADDR_ZIP                  PIC X(10)          StringType           102      10   
+ACCT_GROUP_ID                  PIC X(10)          StringType           112      10   
+
+--------------------------------------------------------------------------------
+SAMPLE ROWS (first 5):
+--------------------------------------------------------------------------------
+
+--- Record 1 ---
+  ACCT_ID                        = 1
+  ACCT_ACTIVE_STATUS             = Y
+  ACCT_CURR_BAL                  = 194.00
+  ACCT_CREDIT_LIMIT              = 2020.00
+  ACCT_CASH_CREDIT_LIMIT         = 1020.00
+  ACCT_OPEN_DATE                 = 2014-11-20
+  ACCT_EXPIRAION_DATE            = 2025-05-20
+  ACCT_REISSUE_DATE              = 2025-05-20
+  ACCT_CURR_CYC_CREDIT           = 0.00
+  ACCT_CURR_CYC_DEBIT            = 0.00
+  ACCT_ADDR_ZIP                  = A000000000
+  ACCT_GROUP_ID                  = 
+
+--- Record 2 ---
+  ACCT_ID                        = 2
+  ACCT_ACTIVE_STATUS             = Y
+  ACCT_CURR_BAL                  = 158.00
+  ACCT_CREDIT_LIMIT              = 6130.00
+  ACCT_CASH_CREDIT_LIMIT         = 5448.00
+  ACCT_OPEN_DATE                 = 2013-06-19
+  ACCT_EXPIRAION_DATE            = 2024-08-11
+  ACCT_REISSUE_DATE              = 2024-08-11
+  ACCT_CURR_CYC_CREDIT           = 0.00
+  ACCT_CURR_CYC_DEBIT            = 0.00
+  ACCT_ADDR_ZIP                  = A000000000
+  ACCT_GROUP_ID                  = 
+
+--- Record 3 ---
+  ACCT_ID                        = 3
+  ACCT_ACTIVE_STATUS             = Y
+  ACCT_CURR_BAL                  = 147.00
+  ACCT_CREDIT_LIMIT              = 4909.00
+  ACCT_CASH_CREDIT_LIMIT         = 538.00
+  ACCT_OPEN_DATE                 = 2013-08-23
+  ACCT_EXPIRAION_DATE            = 2024-01-10
+  ACCT_REISSUE_DATE              = 2024-01-10
+  ACCT_CURR_CYC_CREDIT           = 0.00
+  ACCT_CURR_CYC_DEBIT            = 0.00
+  ACCT_ADDR_ZIP                  = A000000000
+  ACCT_GROUP_ID                  = 
+
+--- Record 4 ---
+  ACCT_ID                        = 4
+  ACCT_ACTIVE_STATUS             = Y
+  ACCT_CURR_BAL                  = 40.00
+  ACCT_CREDIT_LIMIT              = 3503.00
+  ACCT_CASH_CREDIT_LIMIT         = 2789.00
+  ACCT_OPEN_DATE                 = 2012-11-17
+  ACCT_EXPIRAION_DATE            = 2023-12-16
+  ACCT_REISSUE_DATE              = 2023-12-16
+  ACCT_CURR_CYC_CREDIT           = 0.00
+  ACCT_CURR_CYC_DEBIT            = 0.00
+  ACCT_ADDR_ZIP                  = A000000000
+  ACCT_GROUP_ID                  = 
+
+--- Record 5 ---
+  ACCT_ID                        = 5
+  ACCT_ACTIVE_STATUS             = Y
+  ACCT_CURR_BAL                  = 345.00
+  ACCT_CREDIT_LIMIT              = 3819.00
+  ACCT_CASH_CREDIT_LIMIT         = 2430.00
+  ACCT_OPEN_DATE                 = 2012-10-03
+  ACCT_EXPIRAION_DATE            = 2025-03-09
+  ACCT_REISSUE_DATE              = 2025-03-09
+  ACCT_CURR_CYC_CREDIT           = 0.00
+  ACCT_CURR_CYC_DEBIT            = 0.00
+  ACCT_ADDR_ZIP                  = A000000000
+  ACCT_GROUP_ID                  = 
+
+--------------------------------------------------------------------------------
+COLUMN-LEVEL STATISTICS:
+--------------------------------------------------------------------------------
+Field                          Nulls      Distinct  
+ACCT_ID                        0          50        
+ACCT_ACTIVE_STATUS             0          1         
+ACCT_CURR_BAL                  0          50        
+ACCT_CREDIT_LIMIT              0          50        
+ACCT_CASH_CREDIT_LIMIT         0          50        
+ACCT_OPEN_DATE                 0          50        
+ACCT_EXPIRAION_DATE            0          50        
+ACCT_REISSUE_DATE              0          50        
+ACCT_CURR_CYC_CREDIT           0          1         
+ACCT_CURR_CYC_DEBIT            0          1         
+ACCT_ADDR_ZIP                  0          1         
+ACCT_GROUP_ID                  0          1         
+
+================================================================================
+END OF VALIDATION REPORT
+================================================================================
