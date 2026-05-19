@@ -1,0 +1,161 @@
+{
+  "copybook": "CUSTREC.cpy",
+  "record_name": "CUSTOMER-RECORD",
+  "record_length": 500,
+  "data_file": "app/data/ASCII/custdata.txt",
+  "description": "Data-structure for Customer entity (RECLN 500)",
+  "fields": [
+    {
+      "name": "CUST-ID",
+      "cobol_pic": "PIC 9(09)",
+      "pyspark_type": "LongType",
+      "offset": 0,
+      "length": 9,
+      "description": "Customer identifier — unsigned zoned decimal, mapped to LongType"
+    },
+    {
+      "name": "CUST-FIRST-NAME",
+      "cobol_pic": "PIC X(25)",
+      "pyspark_type": "StringType",
+      "offset": 9,
+      "length": 25,
+      "description": "Customer first name — alphanumeric, right-padded with spaces"
+    },
+    {
+      "name": "CUST-MIDDLE-NAME",
+      "cobol_pic": "PIC X(25)",
+      "pyspark_type": "StringType",
+      "offset": 34,
+      "length": 25,
+      "description": "Customer middle name — alphanumeric, right-padded with spaces"
+    },
+    {
+      "name": "CUST-LAST-NAME",
+      "cobol_pic": "PIC X(25)",
+      "pyspark_type": "StringType",
+      "offset": 59,
+      "length": 25,
+      "description": "Customer last name — alphanumeric, right-padded with spaces"
+    },
+    {
+      "name": "CUST-ADDR-LINE-1",
+      "cobol_pic": "PIC X(50)",
+      "pyspark_type": "StringType",
+      "offset": 84,
+      "length": 50,
+      "description": "Address line 1 — alphanumeric, right-padded with spaces"
+    },
+    {
+      "name": "CUST-ADDR-LINE-2",
+      "cobol_pic": "PIC X(50)",
+      "pyspark_type": "StringType",
+      "offset": 134,
+      "length": 50,
+      "description": "Address line 2 — alphanumeric, right-padded with spaces"
+    },
+    {
+      "name": "CUST-ADDR-LINE-3",
+      "cobol_pic": "PIC X(50)",
+      "pyspark_type": "StringType",
+      "offset": 184,
+      "length": 50,
+      "description": "Address line 3 (city) — alphanumeric, right-padded with spaces"
+    },
+    {
+      "name": "CUST-ADDR-STATE-CD",
+      "cobol_pic": "PIC X(02)",
+      "pyspark_type": "StringType",
+      "offset": 234,
+      "length": 2,
+      "description": "State code — 2-character alphanumeric (e.g., NC, IN, GA)"
+    },
+    {
+      "name": "CUST-ADDR-COUNTRY-CD",
+      "cobol_pic": "PIC X(03)",
+      "pyspark_type": "StringType",
+      "offset": 236,
+      "length": 3,
+      "description": "Country code — 3-character alphanumeric (e.g., USA)"
+    },
+    {
+      "name": "CUST-ADDR-ZIP",
+      "cobol_pic": "PIC X(10)",
+      "pyspark_type": "StringType",
+      "offset": 239,
+      "length": 10,
+      "description": "ZIP/postal code — alphanumeric to support ZIP+4 format"
+    },
+    {
+      "name": "CUST-PHONE-NUM-1",
+      "cobol_pic": "PIC X(15)",
+      "pyspark_type": "StringType",
+      "offset": 249,
+      "length": 15,
+      "description": "Primary phone number — alphanumeric (includes formatting chars)"
+    },
+    {
+      "name": "CUST-PHONE-NUM-2",
+      "cobol_pic": "PIC X(15)",
+      "pyspark_type": "StringType",
+      "offset": 264,
+      "length": 15,
+      "description": "Secondary phone number — alphanumeric (includes formatting chars)"
+    },
+    {
+      "name": "CUST-SSN",
+      "cobol_pic": "PIC 9(09)",
+      "pyspark_type": "StringType",
+      "offset": 279,
+      "length": 9,
+      "description": "Social Security Number — zoned decimal but stored as StringType to preserve leading zeros"
+    },
+    {
+      "name": "CUST-GOVT-ISSUED-ID",
+      "cobol_pic": "PIC X(20)",
+      "pyspark_type": "StringType",
+      "offset": 288,
+      "length": 20,
+      "description": "Government-issued ID — alphanumeric"
+    },
+    {
+      "name": "CUST-DOB-YYYYMMDD",
+      "cobol_pic": "PIC X(10)",
+      "pyspark_type": "StringType",
+      "offset": 308,
+      "length": 10,
+      "description": "Date of birth — alphanumeric date string (YYYY-MM-DD format)"
+    },
+    {
+      "name": "CUST-EFT-ACCOUNT-ID",
+      "cobol_pic": "PIC X(10)",
+      "pyspark_type": "StringType",
+      "offset": 318,
+      "length": 10,
+      "description": "EFT (Electronic Funds Transfer) account identifier — alphanumeric"
+    },
+    {
+      "name": "CUST-PRI-CARD-HOLDER-IND",
+      "cobol_pic": "PIC X(01)",
+      "pyspark_type": "StringType",
+      "offset": 328,
+      "length": 1,
+      "description": "Primary cardholder indicator (Y/N) — single alphanumeric character"
+    },
+    {
+      "name": "CUST-FICO-CREDIT-SCORE",
+      "cobol_pic": "PIC 9(03)",
+      "pyspark_type": "IntegerType",
+      "offset": 329,
+      "length": 3,
+      "description": "FICO credit score — unsigned zoned decimal, mapped to IntegerType"
+    },
+    {
+      "name": "FILLER",
+      "cobol_pic": "PIC X(168)",
+      "pyspark_type": "StringType",
+      "offset": 332,
+      "length": 168,
+      "description": "Reserved filler bytes — unused padding to reach 500-byte record length"
+    }
+  ]
+}
