@@ -1,0 +1,94 @@
+{
+  "copybook": "CVACT02Y.cpy",
+  "data_file": "/home/ubuntu/repos/aws-mainframe-modernization-carddemo/app/data/ASCII/carddata.txt",
+  "record_length": 150,
+  "raw_line_count": 50,
+  "parsed_row_count": 50,
+  "row_count_match": true,
+  "lines_with_wrong_length": 0,
+  "null_counts": {},
+  "numeric_summary": {
+    "CARD_ACCT_ID": {
+      "min": "1",
+      "max": "50",
+      "count": "50"
+    }
+  },
+  "sample_rows": [
+    {
+      "CARD_NUM": "0500024453765740",
+      "CARD_ACCT_ID": 50,
+      "CARD_CVV_CD": "747",
+      "CARD_EMBOSSED_NAME": "Aniya Von",
+      "CARD_EXPIRAION_DATE": "2023-03-09",
+      "CARD_ACTIVE_STATUS": "Y",
+      "FILLER": ""
+    },
+    {
+      "CARD_NUM": "0683586198171516",
+      "CARD_ACCT_ID": 27,
+      "CARD_CVV_CD": "567",
+      "CARD_EMBOSSED_NAME": "Ward Jones",
+      "CARD_EXPIRAION_DATE": "2025-07-13",
+      "CARD_ACTIVE_STATUS": "Y",
+      "FILLER": ""
+    },
+    {
+      "CARD_NUM": "0923877193247330",
+      "CARD_ACCT_ID": 2,
+      "CARD_CVV_CD": "028",
+      "CARD_EMBOSSED_NAME": "Enrico Rosenbaum",
+      "CARD_EXPIRAION_DATE": "2024-08-11",
+      "CARD_ACTIVE_STATUS": "Y",
+      "FILLER": ""
+    },
+    {
+      "CARD_NUM": "0927987108636232",
+      "CARD_ACCT_ID": 20,
+      "CARD_CVV_CD": "003",
+      "CARD_EMBOSSED_NAME": "Carter Veum",
+      "CARD_EXPIRAION_DATE": "2024-03-13",
+      "CARD_ACTIVE_STATUS": "Y",
+      "FILLER": ""
+    },
+    {
+      "CARD_NUM": "0982496213629795",
+      "CARD_ACCT_ID": 12,
+      "CARD_CVV_CD": "075",
+      "CARD_EMBOSSED_NAME": "Maci Robel",
+      "CARD_EXPIRAION_DATE": "2023-07-07",
+      "CARD_ACTIVE_STATUS": "Y",
+      "FILLER": ""
+    }
+  ],
+  "schema": [
+    [
+      "CARD_NUM",
+      "string"
+    ],
+    [
+      "CARD_ACCT_ID",
+      "bigint"
+    ],
+    [
+      "CARD_CVV_CD",
+      "string"
+    ],
+    [
+      "CARD_EMBOSSED_NAME",
+      "string"
+    ],
+    [
+      "CARD_EXPIRAION_DATE",
+      "string"
+    ],
+    [
+      "CARD_ACTIVE_STATUS",
+      "string"
+    ],
+    [
+      "FILLER",
+      "string"
+    ]
+  ]
+}
