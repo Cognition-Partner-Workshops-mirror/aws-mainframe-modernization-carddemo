@@ -1,0 +1,187 @@
+{
+  "dashboards": [
+    {
+      "dashboard_title": "Balance Rollup & Transfer Reporting",
+      "description": "Comprehensive balance reporting dashboard with pivot tables, bar charts, line charts, and detailed data views. All charts are cross-filterable by Address, Year, Month, and configurable keys.",
+      "slug": "balance-rollup-reporting",
+      "published": true,
+      "position_json": {
+        "DASHBOARD_VERSION_KEY": "v2",
+        "ROOT_ID": {"type": "ROOT", "id": "ROOT_ID", "children": ["GRID_ID"]},
+        "GRID_ID": {"type": "GRID", "id": "GRID_ID", "children": ["ROW-1", "ROW-2", "ROW-3"]},
+        "ROW-1": {
+          "type": "ROW",
+          "id": "ROW-1",
+          "children": ["CHART-pivot-table", "CHART-bar-chart"],
+          "meta": {"background": "BACKGROUND_TRANSPARENT"}
+        },
+        "ROW-2": {
+          "type": "ROW",
+          "id": "ROW-2",
+          "children": ["CHART-line-chart"],
+          "meta": {"background": "BACKGROUND_TRANSPARENT"}
+        },
+        "ROW-3": {
+          "type": "ROW",
+          "id": "ROW-3",
+          "children": ["CHART-detail-table"],
+          "meta": {"background": "BACKGROUND_TRANSPARENT"}
+        },
+        "CHART-pivot-table": {
+          "type": "CHART",
+          "id": "CHART-pivot-table",
+          "meta": {"width": 6, "height": 50, "chartId": "pivot-table-balance-grid"}
+        },
+        "CHART-bar-chart": {
+          "type": "CHART",
+          "id": "CHART-bar-chart",
+          "meta": {"width": 6, "height": 50, "chartId": "bar-monthly-totals"}
+        },
+        "CHART-line-chart": {
+          "type": "CHART",
+          "id": "CHART-line-chart",
+          "meta": {"width": 12, "height": 50, "chartId": "line-balance-trend"}
+        },
+        "CHART-detail-table": {
+          "type": "CHART",
+          "id": "CHART-detail-table",
+          "meta": {"width": 12, "height": 50, "chartId": "table-detailed-view"}
+        }
+      },
+      "metadata": {
+        "native_filter_configuration": [
+          {
+            "id": "FILTER-address",
+            "name": "Address (KEY_1)",
+            "filterType": "filter_select",
+            "targets": [{"datasetId": "balance_rollup_by_address", "column": {"name": "ADDRESS"}}],
+            "scope": {"rootPath": ["ROOT_ID"], "excluded": []},
+            "defaultDataMask": {"filterState": {"value": null}}
+          },
+          {
+            "id": "FILTER-year",
+            "name": "Year",
+            "filterType": "filter_select",
+            "targets": [{"datasetId": "balance_rollup_by_address", "column": {"name": "BALANCE_YEAR"}}],
+            "scope": {"rootPath": ["ROOT_ID"], "excluded": []},
+            "defaultDataMask": {"filterState": {"value": null}}
+          },
+          {
+            "id": "FILTER-month",
+            "name": "Month",
+            "filterType": "filter_select",
+            "targets": [{"datasetId": "balance_rollup_by_address", "column": {"name": "BALANCE_MONTH"}}],
+            "scope": {"rootPath": ["ROOT_ID"], "excluded": []},
+            "defaultDataMask": {"filterState": {"value": null}}
+          },
+          {
+            "id": "FILTER-key2",
+            "name": "Account Type (KEY_2)",
+            "filterType": "filter_select",
+            "targets": [{"datasetId": "balance_rollup_all_keys", "column": {"name": "KEY_2"}}],
+            "scope": {"rootPath": ["ROOT_ID"], "excluded": []},
+            "defaultDataMask": {"filterState": {"value": null}}
+          },
+          {
+            "id": "FILTER-key3",
+            "name": "Currency (KEY_3)",
+            "filterType": "filter_select",
+            "targets": [{"datasetId": "balance_rollup_all_keys", "column": {"name": "KEY_3"}}],
+            "scope": {"rootPath": ["ROOT_ID"], "excluded": []},
+            "defaultDataMask": {"filterState": {"value": null}}
+          },
+          {
+            "id": "FILTER-key4",
+            "name": "Region (KEY_4)",
+            "filterType": "filter_select",
+            "targets": [{"datasetId": "balance_rollup_all_keys", "column": {"name": "KEY_4"}}],
+            "scope": {"rootPath": ["ROOT_ID"], "excluded": []},
+            "defaultDataMask": {"filterState": {"value": null}}
+          },
+          {
+            "id": "FILTER-key5",
+            "name": "Branch (KEY_5)",
+            "filterType": "filter_select",
+            "targets": [{"datasetId": "balance_rollup_all_keys", "column": {"name": "KEY_5"}}],
+            "scope": {"rootPath": ["ROOT_ID"], "excluded": []},
+            "defaultDataMask": {"filterState": {"value": null}}
+          }
+        ],
+        "cross_filters_enabled": true
+      }
+    }
+  ],
+  "charts": [
+    {
+      "chart_name": "Balance Grid by Address & Month",
+      "chart_type": "pivot_table_v2",
+      "description": "Pivot table: Rows = Address, Columns = Day0-Day31, filterable by month/year and any of the 16 keys",
+      "dataset": "Balance Rollup by Address",
+      "params": {
+        "groupbyRows": ["ADDRESS"],
+        "groupbyColumns": ["BALANCE_MONTH"],
+        "metrics": ["MONTH_TOTAL", "PREV_MONTH_TOTAL"],
+        "aggregateFunction": "Sum",
+        "transposePivot": false,
+        "rowOrder": "key_a_to_z",
+        "colOrder": "key_a_to_z"
+      }
+    },
+    {
+      "chart_name": "Monthly Total Balances by Address",
+      "chart_type": "echarts_bar",
+      "description": "Bar chart: X-axis = Month, Y-axis = Total balance, grouped by address",
+      "dataset": "Monthly Trend by Address",
+      "params": {
+        "x_axis": "BALANCE_MONTH",
+        "metrics": ["MONTH_TOTAL"],
+        "groupby": ["ADDRESS"],
+        "color_scheme": "supersetColors",
+        "show_legend": true,
+        "rich_tooltip": true
+      }
+    },
+    {
+      "chart_name": "Balance Trend Over 12 Months",
+      "chart_type": "echarts_timeseries_line",
+      "description": "Line chart: One line per address showing monthly totals across Jan-Dec",
+      "dataset": "Monthly Trend by Address",
+      "params": {
+        "x_axis": "BALANCE_MONTH",
+        "metrics": ["MONTH_TOTAL"],
+        "groupby": ["ADDRESS"],
+        "color_scheme": "supersetColors",
+        "show_legend": true,
+        "markerEnabled": true,
+        "rich_tooltip": true
+      }
+    },
+    {
+      "chart_name": "Detailed Balance View",
+      "chart_type": "table",
+      "description": "Full table with all 16 keys and all day columns, with pagination and search",
+      "dataset": "Balance Rollup by All 16 Keys",
+      "params": {
+        "all_columns": [
+          "KEY_1", "KEY_2", "KEY_3", "KEY_4", "KEY_5", "KEY_6",
+          "BALANCE_YEAR", "BALANCE_MONTH",
+          "DAY_0_BALANCE", "DAY_1_BALANCE", "DAY_2_BALANCE", "DAY_3_BALANCE",
+          "DAY_4_BALANCE", "DAY_5_BALANCE", "DAY_6_BALANCE", "DAY_7_BALANCE",
+          "DAY_8_BALANCE", "DAY_9_BALANCE", "DAY_10_BALANCE", "DAY_11_BALANCE",
+          "DAY_12_BALANCE", "DAY_13_BALANCE", "DAY_14_BALANCE", "DAY_15_BALANCE",
+          "DAY_16_BALANCE", "DAY_17_BALANCE", "DAY_18_BALANCE", "DAY_19_BALANCE",
+          "DAY_20_BALANCE", "DAY_21_BALANCE", "DAY_22_BALANCE", "DAY_23_BALANCE",
+          "DAY_24_BALANCE", "DAY_25_BALANCE", "DAY_26_BALANCE", "DAY_27_BALANCE",
+          "DAY_28_BALANCE", "DAY_29_BALANCE", "DAY_30_BALANCE", "DAY_31_BALANCE"
+        ],
+        "page_length": 25,
+        "include_search": true,
+        "table_timestamp_format": "smart_date"
+      }
+    }
+  ],
+  "_notes": {
+    "key_configuration_mapping": "Column aliases in datasets reference KEY_CONFIGURATION table. When key names change, update the SQL aliases in datasource-config.py and recreate the datasets.",
+    "filters": "Global filters include: Address (KEY_1), Year, Month, Account Type (KEY_2), Currency (KEY_3), Region (KEY_4), Branch (KEY_5). Add more filter panels in Superset UI for KEY_6 through KEY_16 as needed."
+  }
+}
