@@ -1,0 +1,43 @@
+# Balance Transfer API Configuration
+spring:
+  application:
+    name: balance-transfer-api
+
+  # Oracle Database connection (matching Oracle XE container)
+  datasource:
+    url: jdbc:oracle:thin:@oracle-xe:1521/XEPDB1
+    username: system
+    password: oracle
+    driver-class-name: oracle.jdbc.OracleDriver
+
+  # JPA / Hibernate settings
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.OracleDialect
+        format_sql: true
+
+  # Redis cache connection (DB 0 for Spring Boot; Superset uses DB 1)
+  data:
+    redis:
+      host: redis
+      port: 6379
+      database: 0
+
+  # Cache type
+  cache:
+    type: redis
+
+# Server configuration
+server:
+  port: 8080
+
+# Actuator endpoints for health monitoring
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
