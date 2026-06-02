@@ -1,0 +1,72 @@
+{
+  "copybook": "CVACT02Y.cpy",
+  "record_name": "CARD-RECORD",
+  "record_length": 150,
+  "description": "Data-structure for card entity (RECLN 150)",
+  "source_file": "app/data/ASCII/carddata.txt",
+  "fields": [
+    {
+      "name": "CARD-NUM",
+      "pyspark_name": "CARD_NUM",
+      "cobol_pic": "PIC X(16)",
+      "pyspark_type": "StringType",
+      "byte_offset": 1,
+      "length": 16,
+      "description": "Card number — alphanumeric, stored as StringType to preserve leading zeros and formatting"
+    },
+    {
+      "name": "CARD-ACCT-ID",
+      "pyspark_name": "CARD_ACCT_ID",
+      "cobol_pic": "PIC 9(11)",
+      "pyspark_type": "StringType",
+      "byte_offset": 17,
+      "length": 11,
+      "description": "Associated account identifier — stored as StringType to preserve leading zeros (FK to ACCT-ID)"
+    },
+    {
+      "name": "CARD-CVV-CD",
+      "pyspark_name": "CARD_CVV_CD",
+      "cobol_pic": "PIC 9(03)",
+      "pyspark_type": "StringType",
+      "byte_offset": 28,
+      "length": 3,
+      "description": "Card CVV code — stored as StringType to preserve leading zeros"
+    },
+    {
+      "name": "CARD-EMBOSSED-NAME",
+      "pyspark_name": "CARD_EMBOSSED_NAME",
+      "cobol_pic": "PIC X(50)",
+      "pyspark_type": "StringType",
+      "byte_offset": 31,
+      "length": 50,
+      "description": "Name embossed on the physical card"
+    },
+    {
+      "name": "CARD-EXPIRAION-DATE",
+      "pyspark_name": "CARD_EXPIRAION_DATE",
+      "cobol_pic": "PIC X(10)",
+      "pyspark_type": "StringType",
+      "byte_offset": 81,
+      "length": 10,
+      "description": "Card expiration date in YYYY-MM-DD format (note: original copybook typo 'EXPIRAION' preserved)"
+    },
+    {
+      "name": "CARD-ACTIVE-STATUS",
+      "pyspark_name": "CARD_ACTIVE_STATUS",
+      "cobol_pic": "PIC X(01)",
+      "pyspark_type": "StringType",
+      "byte_offset": 91,
+      "length": 1,
+      "description": "Card active status flag (Y/N)"
+    },
+    {
+      "name": "FILLER",
+      "pyspark_name": "FILLER",
+      "cobol_pic": "PIC X(59)",
+      "pyspark_type": "StringType",
+      "byte_offset": 92,
+      "length": 59,
+      "description": "Reserved padding to reach RECLN 150 — dropped during parsing"
+    }
+  ]
+}
