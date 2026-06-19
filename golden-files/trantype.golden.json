@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "source_file": "app/data/ASCII/trantype.txt",
+    "copybook": "CVTRA03Y",
+    "record_length": 60,
+    "record_count": 7,
+    "fields": [
+      {
+        "name": "TRAN-TYPE",
+        "pic": "X(02)",
+        "offset": 0,
+        "length": 2,
+        "type": "alphanumeric"
+      },
+      {
+        "name": "TRAN-TYPE-DESC",
+        "pic": "X(50)",
+        "offset": 2,
+        "length": 50,
+        "type": "alphanumeric"
+      }
+    ]
+  },
+  "records": [
+    {
+      "TRAN-TYPE": "01",
+      "TRAN-TYPE-DESC": "Purchase"
+    },
+    {
+      "TRAN-TYPE": "02",
+      "TRAN-TYPE-DESC": "Payment"
+    },
+    {
+      "TRAN-TYPE": "03",
+      "TRAN-TYPE-DESC": "Credit"
+    },
+    {
+      "TRAN-TYPE": "04",
+      "TRAN-TYPE-DESC": "Authorization"
+    },
+    {
+      "TRAN-TYPE": "05",
+      "TRAN-TYPE-DESC": "Refund"
+    },
+    {
+      "TRAN-TYPE": "06",
+      "TRAN-TYPE-DESC": "Reversal"
+    },
+    {
+      "TRAN-TYPE": "07",
+      "TRAN-TYPE-DESC": "Adjustment"
+    }
+  ]
+}
