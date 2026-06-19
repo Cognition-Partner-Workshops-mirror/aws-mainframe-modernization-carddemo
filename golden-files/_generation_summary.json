@@ -1,0 +1,60 @@
+{
+  "data_dir": "/home/ubuntu/repos/aws-mainframe-modernization-carddemo/app/data/ASCII",
+  "output_dir": "/home/ubuntu/repos/aws-mainframe-modernization-carddemo/golden-files",
+  "results": [
+    {
+      "file": "acctdata",
+      "status": "generated",
+      "records": 50,
+      "output": "/home/ubuntu/repos/aws-mainframe-modernization-carddemo/golden-files/acctdata.golden.json"
+    },
+    {
+      "file": "carddata",
+      "status": "generated",
+      "records": 50,
+      "output": "/home/ubuntu/repos/aws-mainframe-modernization-carddemo/golden-files/carddata.golden.json"
+    },
+    {
+      "file": "cardxref",
+      "status": "generated",
+      "records": 50,
+      "output": "/home/ubuntu/repos/aws-mainframe-modernization-carddemo/golden-files/cardxref.golden.json"
+    },
+    {
+      "file": "custdata",
+      "status": "generated",
+      "records": 50,
+      "output": "/home/ubuntu/repos/aws-mainframe-modernization-carddemo/golden-files/custdata.golden.json"
+    },
+    {
+      "file": "dailytran",
+      "status": "generated",
+      "records": 300,
+      "output": "/home/ubuntu/repos/aws-mainframe-modernization-carddemo/golden-files/dailytran.golden.json"
+    },
+    {
+      "file": "discgrp",
+      "status": "generated",
+      "records": 51,
+      "output": "/home/ubuntu/repos/aws-mainframe-modernization-carddemo/golden-files/discgrp.golden.json"
+    },
+    {
+      "file": "tcatbal",
+      "status": "generated",
+      "records": 50,
+      "output": "/home/ubuntu/repos/aws-mainframe-modernization-carddemo/golden-files/tcatbal.golden.json"
+    },
+    {
+      "file": "trancatg",
+      "status": "generated",
+      "records": 18,
+      "output": "/home/ubuntu/repos/aws-mainframe-modernization-carddemo/golden-files/trancatg.golden.json"
+    },
+    {
+      "file": "trantype",
+      "status": "generated",
+      "records": 7,
+      "output": "/home/ubuntu/repos/aws-mainframe-modernization-carddemo/golden-files/trantype.golden.json"
+    }
+  ]
+}
